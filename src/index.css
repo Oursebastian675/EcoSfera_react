@@ -1,0 +1,140 @@
+*{
+  margin: 0;
+}
+
+body{
+  background-image: url('public/fondoEcoSfera.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Parte superior del proyecto */
+
+.contenedor{ 
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.cabecera{
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  display: flex;
+  background-color: #2563eb;
+}
+
+.Logo{
+  width: auto;
+  height: 100px;
+  
+}
+
+.titulo p{
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  transition: color 0.3s;
+  margin-left: 1.5%;
+}
+
+.titulo2 span{
+  font-size: 2rem;
+  color: #000000;
+  margin: 0;
+  transition: color 0.3s;
+  margin-left: 1.5%;
+}
+
+
+.busqueda{
+  width: 200px;
+  height: 30px;
+  margin-left: 20%;
+  background-color: white;
+}
+
+.categorias_opciones{
+  width: 170px;
+  height: 30px;
+  margin-left: 30px;
+  background-color: white;
+}
+
+.blog{
+  width: 140px;
+  height: 30px;
+  margin-left: 30px;
+  background-color: transparent;
+}
+.ingresar{
+  width: 140px;
+  height: 30px;
+  margin-left: 30px;
+  background-color: transparent;
+}
+
+
+
+/* Carrusel */
+
+.carousel-padre {
+  
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 500px; /* Ocupa toda la ventana (opcional) */
+  margin: 2px;
+  
+}
+
+.carousel{
+  margin-top: 115px;
+  height: 500px;
+  width: 145%;
+  max-width: 990px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgb(0, 0, 0.1);
+}
+
+
+
+.carousel-hijo {
+  display: flex;
+  animation: slide 12s infinite;
+  align-items: center;
+  left: 48px;
+  height: 500px;
+  
+}
+ 
+
+
+.carousel-item {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+ height: 500px;
+
+}
+
+.carousel-item img {
+  height: 500px;
+  display: block;
+  width: 100%;
+  background-size: cover;
+}
+
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
