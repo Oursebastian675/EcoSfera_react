@@ -21,7 +21,7 @@ function Encabezado() {
                         <option value="mascotas">Mascotas</option>
                     </select>
 
-                    
+
 
                     <button type="button" id="btn-blog" class="blog">Blog</button>
                     <button type="button" id="btn-ingresar" class="ingresar">Ingresar</button>

@@ -1,8 +1,8 @@
-*{
+* {
   margin: 0;
 }
 
-body{
+body {
   background-image: url('public/fondoEcoSfera.jpg');
   background-position: center center;
   background-size: cover;
@@ -10,15 +10,15 @@ body{
   background-attachment: fixed;
 }
 
-/* Parte superior del proyecto */
+/*--------------------------------------------------Parte superior del proyecto--------------------------------------------------*/
 
-.contenedor{ 
+.contenedor {
   max-width: 2000px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
-.cabecera{
+.cabecera {
   width: 100%;
   height: 10vh;
   align-items: center;
@@ -28,13 +28,13 @@ body{
   background-color: #2563eb;
 }
 
-.Logo{
+.Logo {
   width: auto;
   height: 100px;
-  
+
 }
 
-.titulo p{
+.titulo p {
   font-size: 3.5rem;
   font-weight: bold;
   color: #000000;
@@ -43,7 +43,7 @@ body{
   margin-left: 1.5%;
 }
 
-.titulo2 span{
+.titulo2 span {
   font-size: 2rem;
   color: #000000;
   margin: 0;
@@ -52,48 +52,52 @@ body{
 }
 
 
-.busqueda{
+.busqueda {
   width: 200px;
   height: 30px;
   margin-left: 20%;
   background-color: white;
 }
 
-.categorias_opciones{
+.categorias_opciones {
   width: 170px;
   height: 30px;
   margin-left: 30px;
   background-color: white;
 }
 
-.blog{
-  width: 140px;
-  height: 30px;
-  margin-left: 30px;
-  background-color: transparent;
-}
-.ingresar{
+.blog {
   width: 140px;
   height: 30px;
   margin-left: 30px;
   background-color: transparent;
 }
 
+.ingresar {
+  width: 140px;
+  height: 30px;
+  margin-left: 30px;
+  background-color: transparent;
+}
 
 
-/* Carrusel */
+
+
+
+
+/*-----------------------------------------------------Carrusel-----------------------------------------------------*/
 
 .carousel-padre {
-  
-  display: flex; /* Activa Flexbox */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 500px; /* Ocupa toda la ventana (opcional) */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
   margin: 2px;
-  
+
 }
 
-.carousel{
+.carousel {
   margin-top: 115px;
   height: 500px;
   width: 145%;
@@ -111,15 +115,15 @@ body{
   align-items: center;
   left: 48px;
   height: 500px;
-  
+
 }
- 
+
 
 
 .carousel-item {
   min-width: 100%;
   transition: transform 0.5s ease;
- height: 500px;
+  height: 500px;
 
 }
 
@@ -132,9 +136,23 @@ body{
 
 
 @keyframes slide {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-100%); }
-  50% { transform: translateX(-200%); }
-  75% { transform: translateX(-300%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-200%);
+  }
+
+  75% {
+    transform: translateX(-300%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
