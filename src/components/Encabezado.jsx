@@ -1,10 +1,11 @@
+import Logo from "../assets/logoEcoSfera.png"
 function Encabezado() {
     return (
         <header>
             <div className="contenedor">
                 <div className="cabecera">
                     <div className="Logo">
-                        <img src="src/assets/logoEcoSfera.png" alt="LogoEcoSfera" /></div>
+                        <img src={Logo} alt="LogoEcoSfera" /></div>
                     <div className="titulo"><p>Eco</p></div>
                     <div className="titulo2"><span>Sfera</span></div>
 
