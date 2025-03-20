@@ -8,7 +8,7 @@ src="https://cdn.vectorstock.com/i/preview-1x/40/15/banner-software-development-
 
 <br clear="both">
 
-<h1 align="left">¡Bienvenidooooos!</h1>
+<h1 align="left">¡Bienvenidos!</h1>
 
 ###
 
@@ -21,7 +21,7 @@ src="https://cdn.vectorstock.com/i/preview-1x/40/15/banner-software-development-
 
 ###
 
-<h3 align="left">El grupo esta integrado por:<br> <br>Carol Rivera.<br>Sebastián Pedroza.<br>.Isaac Garcia<br>.</h3>
+<h3 align="left">El grupo esta integrado por:<br> <br>Carol Rivera.<br>Sebastián Pedroza.<br>Isaac Garcia.<br></h3>
 
 ###
 
@@ -31,18 +31,18 @@ src="https://cdn.vectorstock.com/i/preview-1x/40/15/banner-software-development-
 
 ###
 
-<img align="right" height="200" src="https://static.vecteezy.com/system/resources/previews/004/908/013/original/coding-logo-design-template-free-vector.jpg"  />
+<img align="right" height="200" src=""  />
 
 ###
 
 <div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
+  <img src="src/assets/react.svg" height="40" alt="React logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" height="40" alt="microsoftsqlserver logo"  />
+  <img src="" height="40" alt="microsoftsqlserver logo"  />
 </div>
 
 ###
