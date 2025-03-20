@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url('public/fondoEcoSfera.jpg');
+  background-image: url('/public/fondoEcoSfera.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@ body {
 
 /*-----------------------------------Parte superior del proyecto-----------------------------------*/
 
-.contenedor {
+.inicio-div-contenedor {
   max-width: 2000px;
   margin: 0 auto;
   padding: 1.5rem;

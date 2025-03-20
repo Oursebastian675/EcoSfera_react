@@ -1,12 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Encabezado from './Encabezado'
-import Carrusel from './Carrusel'
+import Inicio from './routes/enrutador.jsx'
+import { enrutador } from './routes/enrutador.jsx'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+
+let router = createBrowserRouter(enrutador)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Encabezado />
-    <Carrusel />
+    <RouterProvider router={router}/>
   </StrictMode>
 )
