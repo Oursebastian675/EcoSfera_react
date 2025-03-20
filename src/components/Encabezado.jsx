@@ -25,7 +25,12 @@ function Encabezado() {
 
 
                     <button type="button" id="btn-blog" class="blog">Blog</button>
-                    <button type="button" id="btn-ingresar" class="ingresar">Ingresar</button>
+                    
+
+ <button type="button" id="btn-ingresar" class="btn-23">
+  <span class="text">Ingresar</span>
+  <span aria-hidden="true" class="marquee">Ingresar</span>
+                    </button>
                     <div className="carrito_compras"></div>
                 </div>
             </div>
