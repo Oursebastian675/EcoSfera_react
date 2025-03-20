@@ -31,7 +31,7 @@ src="https://cdn.vectorstock.com/i/preview-1x/40/15/banner-software-development-
 
 ###
 
-<img align="right" height="200" src=""  />
+<!-- <img align="right" height="200" src=""  /> -->
 
 ###
 
@@ -41,8 +41,6 @@ src="https://cdn.vectorstock.com/i/preview-1x/40/15/banner-software-development-
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
-  <img width="12" />
-  <img src="" height="40" alt="microsoftsqlserver logo"  />
 </div>
 
 ###
