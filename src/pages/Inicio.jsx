@@ -1,5 +1,6 @@
 import Encabezado from "../components/Encabezado.jsx"
 import Carrusel from "../components/Carrusel.jsx"
+import Login from "../components/Login.jsx";
 
 function Inicio() {
     return (
@@ -10,4 +11,4 @@ function Inicio() {
     )
 }
 
-export default Inicio;
+export default Inicio; 
