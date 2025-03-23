@@ -52,64 +52,45 @@ body {
 }
 
 
-/* From Uiverse.io by devkatyall */ 
-/* From Uiverse.io by devkatyall */ 
-.cssbuttons-io {
-  position: relative;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 15px; /* Reducido */
-  border-radius: 0.7em; /* Reducido */
-  cursor: pointer;
-  border: none;
-  background: linear-gradient(to right, blue, #5ce1e6);
-  color: ghostwhite;
-  overflow: hidden;
-  margin-left: 10px; /* Mueve el botón hacia la derecha */
-}
-
-.cssbuttons-io svg {
-  width: 1em; /* Reducido */
-  height: 1em; /* Reducido */
-  margin-left: 0.5em; /* Reducido */
-  stroke-width: 2px;
-}
-
-.cssbuttons-io span {
-  position: relative;
-  z-index: 10;
-  transition: color 0.4s;
-  display: inline-flex;
+/* From Uiverse.io by JaydipPrajapati1910 */
+.group {
+  display: flex;
+  line-height: 24px; /* Reducido el line-height */
   align-items: center;
-  padding: 0.7em 0.8em 0.7em 0.9em; /* Reducido */
+  position: relative;
+  max-width: 150px; /* Reducido el ancho máximo */
 }
 
-.cssbuttons-io::before,
-.cssbuttons-io::after {
-  position: absolute;
-  top: 0;
-  left: 0;
+.input {
+  height: 30px; /* Reducida la altura del campo de entrada */
+  line-height: 24px; /* Reducido el line-height */
+  padding: 0 0.8rem; /* Reducido el padding */
   width: 100%;
-  height: 100%;
-  z-index: 0;
+  padding-left: 2rem; /* Ajustado el espacio para el icono */
+  outline: none;
+  background: linear-gradient(180deg, rgb(56, 56, 56) 0%, rgb(36, 36, 36) 66%, rgb(41, 41, 41) 100%);
+  color: #fff;
+  transition: .3s ease;
+  border: 2px solid;
+  border-image: conic-gradient(#00F260, #0575E6, #64f38c) 1;
 }
 
-.cssbuttons-io::before {
-  content: "";
-  background: #000;
-  width: 120%;
-  left: -10%;
-  transform: skew(30deg);
-  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+.input::placeholder {
+  color: #fff;
 }
 
-.cssbuttons-io:hover::before {
-  transform: translate3d(100%, 0, 0);
+.input:focus::placeholder {
+  color: #999;
 }
 
-.cssbuttons-io:active {
-  transform: scale(0.95);
+.icon {
+  position: absolute;
+  left: 1rem; /* Reducido el espacio del icono */
+  fill: #fff;
+  width: 0.9rem; /* Reducido el tamaño del icono */
+  height: 0.9rem; /* Reducido el tamaño del icono */
 }
+
 
 /* Estilo para el select */
 .categorias_opciones {
