@@ -52,36 +52,236 @@ body {
 }
 
 
-.busqueda {
-  width: 200px;
-  height: 30px;
-  margin-left: 20%;
-  background-color: white;
+/* From Uiverse.io by devkatyall */ 
+/* From Uiverse.io by devkatyall */ 
+.cssbuttons-io {
+  position: relative;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px; /* Reducido */
+  border-radius: 0.7em; /* Reducido */
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(to right, blue, #5ce1e6);
+  color: ghostwhite;
+  overflow: hidden;
+  margin-left: 10px; /* Mueve el botón hacia la derecha */
 }
 
+.cssbuttons-io svg {
+  width: 1em; /* Reducido */
+  height: 1em; /* Reducido */
+  margin-left: 0.5em; /* Reducido */
+  stroke-width: 2px;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7em 0.8em 0.7em 0.9em; /* Reducido */
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io::before {
+  content: "";
+  background: #000;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.95);
+}
+
+/* Estilo para el select */
 .categorias_opciones {
-  width: 170px;
-  height: 30px;
-  margin-left: 30px;
-  background-color: white;
+  font-size: 14px; /* Reducido tamaño de la fuente */
+  padding: 0.6em 1em; /* Reducido espaciado interno */
+  border-radius: 6px; /* Bordes más redondeados */
+  border: 2px solid #2563eb; /* Color del borde */
+  background-color: #f0f4f8; /* Color de fondo */
+  color: #333; /* Color de texto */
+  cursor: pointer; /* Cambio de cursor */
+  transition: all 0.3s ease; /* Transición suave */
+  appearance: none; /* Quita el estilo predeterminado en algunos navegadores */
+  -webkit-appearance: none; /* Para Safari */
+  -moz-appearance: none; /* Para Firefox */
+  width: auto; /* Ajustar automáticamente el ancho */
+  max-width: 180px; /* Ancho máximo */
+  margin-left: 10px; /* Añadido margen a la izquierda para moverlo hacia la derecha */
 }
 
-.blog {
-  width: 140px;
-  height: 30px;
-  margin-left: 30px;
-  background-color: transparent;
+/* Estilo para las opciones */
+.categorias_opciones option {
+  padding: 8px; /* Reducido espaciado de las opciones */
+  background-color: #ffffff; /* Fondo de las opciones */
+  color: #333; /* Color de texto */
+  border-bottom: 1px solid #ccc; /* Línea debajo de las opciones */
 }
 
-.ingresar {
-  width: 140px;
-  height: 30px;
-  margin-left: 30px;
-  background-color: transparent;
+/* Estilo cuando el select tiene el foco (cuando está seleccionado) */
+.categorias_opciones:focus {
+  border-color: #2563eb; /* Cambia el color del borde al hacer foco */
+  outline: none; /* Elimina el borde por defecto */
+}
+
+/* Estilo al pasar el mouse por encima de las opciones */
+.categorias_opciones option:hover {
+  background-color: #2563eb; /* Fondo al pasar el mouse */
+  color: #fff; /* Color del texto al pasar el mouse */
+}
+
+/* Opciones especiales */
+.categorias_opciones option:first-child {
+  font-weight: bold; /* Destacar la opción "Categorias" */
+  color: #aaa; /* Color gris para la opción predeterminada */
+}
+
+/* Opciones seleccionadas */
+.categorias_opciones:focus option {
+  color: #333; /* Color de texto cuando se selecciona una opción */
+}
+
+
+/* From Uiverse.io by Allyhere */ 
+.btn-donate {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(194 100% 69% / 1);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  padding: 0.7em 1.2em; /* Reducido */
+  min-width: 100px; /* Reducido */
+  min-height: 36px; /* Reducido */
+  font-size: var(--size, 0.9rem); /* Reducido */
+  font-weight: 500;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow:
+    0px 0px 20px rgba(71, 184, 255, 0.5),
+    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  margin-left: 10px; /* Mueve el botón hacia la derecha */
+}
+
+.btn-donate:hover {
+  background-position: right top;
+}
+
+.btn-donate:is(:focus, :focus-visible, :active) {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--btn-bg-color),
+    0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-donate {
+    transition: linear;
+  }
+}
+
+
+/* From Uiverse.io by adeladel522 */ 
+.button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.35rem; /* Reducido */
+  padding-inline: 1rem; /* Reducido */
+  background-color: #2563eb;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffff;
+  gap: 8px; /* Reducido */
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 13px; /* Reducido */
+  margin-left: 10px; /* Mueve el botón hacia la derecha */
+
+}
+
+.icon {
+  width: 20px; /* Reducido */
+  height: 20px; /* Reducido */
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  border-color: #2563eb;
+}
+
+.button:hover .icon {
+  transform: translate(4px);
+}
+
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 80px; /* Reducido */
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -80px; /* Reducido */
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -80px; /* Reducido */
   }
 
-
-
+  60% {
+    left: 100%;
+  }
+  to {
+    left: 100%;
+  }
+}
 
 
 
