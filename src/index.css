@@ -172,6 +172,48 @@ body {
   margin-left: 10px; /* Mueve el botón hacia la derecha */
 }
 
+.btn-donate:hover {
+  transform: scale(1.05);
+  border-color: #2563eb;
+}
+
+.btn-donate:hover .icon {
+  transform: translate(4px);
+}
+
+.btn-donate:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.btn-donate::before {
+  content: "";
+  position: absolute;
+  width: 80px; /* Reducido */
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -80px; /* Reducido */
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -80px; /* Reducido */
+  }
+
+  60% {
+    left: 100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 
 
 /* From Uiverse.io by adeladel522 */ 
