@@ -19,7 +19,7 @@ function Encabezado() {
             <div className="contenedor">
                 <div className="cabecera">
                     <div className="logo">
-                        <img src={Logo} alt="Logo EcoSfera" />
+                    <img src={Logo} alt="Logo EcoSfera" />
                     </div>
                     <div className="titulo">
                         <p>Eco</p>
@@ -49,18 +49,20 @@ function Encabezado() {
                     </div>
 
                     {/* Selector de categorías */}
+                    <div>
                     <select
                         className="categorias_opciones"
                         name="categorias"
                         id="categoria"
                     >
-                        <option value="">Categorías</option>
+                        
+                        <option value="">Categorías &darr;</option>
                         <option value="aseoPersonal">Aseo personal</option>
                         <option value="hogar">Hogar</option>
                         <option value="bienestarYBelleza">Bienestar y belleza</option>
                         <option value="mascotas">Mascotas</option>
                     </select>
-
+                    </div>
                     {/* Botón Blog */}
                     <button className="btn-donate">Blog</button>
 

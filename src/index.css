@@ -13,42 +13,40 @@ body {
 /*-----------------------------------Parte superior del proyecto-----------------------------------*/
 
 .contenedor {
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 1.5rem;
+  max-width: 100%;
 }
 
 .cabecera {
   width: 100%;
-  height: 10vh;
+  height: 12vh;
   align-items: center;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   display: flex;
-  background-color: #2563eb;
+  background: linear-gradient(to top, rgba(72, 122, 231, 0.827), rgba(37, 99, 235, 0));
 }
 
-.Logo {
-  width: auto;
+.logo {
+  width: 40px;
   height: 100px;
-
 }
 
-.titulo p {
+.titulo {
   font-size: 3.5rem;
   font-weight: bold;
   color: #000000;
   margin: 0;
   transition: color 0.3s;
   margin-left: 1.5%;
+  height: 85px;
 }
 
-.titulo2 span {
-  font-size: 2rem;
+.titulo2{
+  font-size: 1.8rem;
   color: #000000;
   margin: 0;
   transition: color 0.3s;
-  margin-left: 1.5%;
+  margin-right: 35%;
 }
 
 
@@ -63,30 +61,26 @@ body {
 
 .input {
   height: 30px; /* Reducida la altura del campo de entrada */
-  line-height: 24px; /* Reducido el line-height */
-  padding: 0 0.8rem; /* Reducido el padding */
+  padding: 0; /* Reducido el padding */
   width: 100%;
   padding-left: 2rem; /* Ajustado el espacio para el icono */
   outline: none;
-  background: linear-gradient(180deg, rgb(56, 56, 56) 0%, rgb(36, 36, 36) 66%, rgb(41, 41, 41) 100%);
-  color: #fff;
+  color: #000000;
   transition: .3s ease;
-  border: 2px solid;
-  border-image: conic-gradient(#00F260, #0575E6, #64f38c) 1;
+  border: 2px solid  #2563eb;
+  border-radius: 6px; /* Bordes más redondeados */
+  
 }
 
 .input::placeholder {
-  color: #fff;
+  color: #000000;
 }
 
-.input:focus::placeholder {
-  color: #999;
-}
 
 .icon {
   position: absolute;
-  left: 1rem; /* Reducido el espacio del icono */
-  fill: #fff;
+  left: 0.5rem; /* Reducido el espacio del icono */
+  fill: #000000;
   width: 0.9rem; /* Reducido el tamaño del icono */
   height: 0.9rem; /* Reducido el tamaño del icono */
 }
@@ -95,7 +89,7 @@ body {
 /* Estilo para el select */
 .categorias_opciones {
   font-size: 14px; /* Reducido tamaño de la fuente */
-  padding: 0.6em 1em; /* Reducido espaciado interno */
+  padding: 0 1em; /* Reducido espaciado interno */
   border-radius: 6px; /* Bordes más redondeados */
   border: 2px solid #2563eb; /* Color del borde */
   background-color: #f0f4f8; /* Color de fondo */
@@ -107,8 +101,20 @@ body {
   -moz-appearance: none; /* Para Firefox */
   width: auto; /* Ajustar automáticamente el ancho */
   max-width: 180px; /* Ancho máximo */
+  height: 30px;
   margin-left: 10px; /* Añadido margen a la izquierda para moverlo hacia la derecha */
 }
+
+.flecha-abajo {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid black; /* Cambia el color si es necesario */
+}
+
+
+
 
 /* Estilo para las opciones */
 .categorias_opciones option {
@@ -144,52 +150,28 @@ body {
 
 /* From Uiverse.io by Allyhere */ 
 .btn-donate {
-  --clr-font-main: hsla(0 0% 20% / 100);
-  --btn-bg-1: hsla(194 100% 69% / 1);
-  --btn-bg-2: hsla(217 100% 56% / 1);
-  --btn-bg-color: hsla(360 100% 100% / 1);
-  --radii: 0.5em;
+  width: 110px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.35rem; /* Reducido */
+  padding-inline: 1rem; /* Reducido */
+  background-color: #2563eb;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0.7em 1.2em; /* Reducido */
-  min-width: 100px; /* Reducido */
-  min-height: 36px; /* Reducido */
-  font-size: var(--size, 0.9rem); /* Reducido */
-  font-weight: 500;
-  transition: 0.8s;
-  background-size: 280% auto;
-  background-image: linear-gradient(
-    325deg,
-    var(--btn-bg-2) 0%,
-    var(--btn-bg-1) 55%,
-    var(--btn-bg-2) 90%
-  );
-  border: none;
-  border-radius: var(--radii);
-  color: var(--btn-bg-color);
-  box-shadow:
-    0px 0px 20px rgba(71, 184, 255, 0.5),
-    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
-    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
-    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  color: #ffff;
+  gap: 8px; /* Reducido */
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 13px; /* Reducido */
   margin-left: 10px; /* Mueve el botón hacia la derecha */
 }
 
-.btn-donate:hover {
-  background-position: right top;
-}
-
-.btn-donate:is(:focus, :focus-visible, :active) {
-  outline: none;
-  box-shadow:
-    0 0 0 3px var(--btn-bg-color),
-    0 0 0 6px var(--btn-bg-2);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-donate {
-    transition: linear;
-  }
-}
 
 
 /* From Uiverse.io by adeladel522 */ 
@@ -336,4 +318,15 @@ body {
   100% {
     transform: translateX(0);
   }
+}
+
+/*-----------------------------------Parte inferior del proyecto (Cuadros)-----------------------------------*/
+
+.informacion_basica{
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width: 260px;
 }
