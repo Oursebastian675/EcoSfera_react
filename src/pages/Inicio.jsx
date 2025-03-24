@@ -1,13 +1,13 @@
 import Encabezado from "../components/Encabezado.jsx"
 import Carrusel from "../components/Carrusel.jsx"
-import Inferior from "../components/Inferior.jsx";
+import Intermedio from "../components/Intermedio.jsx";
 
 function Inicio() {
     return (
         <section className="inicio">
             <Encabezado />
             <Carrusel />
-            <Inferior />
+            <Intermedio />
         </section>
     )
 }

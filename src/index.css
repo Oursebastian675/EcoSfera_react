@@ -41,7 +41,7 @@ body {
   height: 85px;
 }
 
-.titulo2{
+.titulo2 {
   font-size: 1.8rem;
   color: #000000;
   margin: 0;
@@ -53,23 +53,29 @@ body {
 /* From Uiverse.io by JaydipPrajapati1910 */
 .group {
   display: flex;
-  line-height: 24px; /* Reducido el line-height */
+  line-height: 24px;
+  /* Reducido el line-height */
   align-items: center;
   position: relative;
-  max-width: 150px; /* Reducido el ancho máximo */
+  max-width: 150px;
+  /* Reducido el ancho máximo */
 }
 
 .input {
-  height: 30px; /* Reducida la altura del campo de entrada */
-  padding: 0; /* Reducido el padding */
+  height: 30px;
+  /* Reducida la altura del campo de entrada */
+  padding: 0;
+  /* Reducido el padding */
   width: 100%;
-  padding-left: 2rem; /* Ajustado el espacio para el icono */
+  padding-left: 2rem;
+  /* Ajustado el espacio para el icono */
   outline: none;
   color: #000000;
   transition: .3s ease;
-  border: 2px solid  #2563eb;
-  border-radius: 6px; /* Bordes más redondeados */
-  
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  /* Bordes más redondeados */
+
 }
 
 .input::placeholder {
@@ -79,30 +85,47 @@ body {
 
 .icon {
   position: absolute;
-  left: 0.5rem; /* Reducido el espacio del icono */
+  left: 0.5rem;
+  /* Reducido el espacio del icono */
   fill: #000000;
-  width: 0.9rem; /* Reducido el tamaño del icono */
-  height: 0.9rem; /* Reducido el tamaño del icono */
+  width: 0.9rem;
+  /* Reducido el tamaño del icono */
+  height: 0.9rem;
+  /* Reducido el tamaño del icono */
 }
 
 
 /* Estilo para el select */
 .categorias_opciones {
-  font-size: 14px; /* Reducido tamaño de la fuente */
-  padding: 0 1em; /* Reducido espaciado interno */
-  border-radius: 6px; /* Bordes más redondeados */
-  border: 2px solid #2563eb; /* Color del borde */
-  background-color: #f0f4f8; /* Color de fondo */
-  color: #333; /* Color de texto */
-  cursor: pointer; /* Cambio de cursor */
-  transition: all 0.3s ease; /* Transición suave */
-  appearance: none; /* Quita el estilo predeterminado en algunos navegadores */
-  -webkit-appearance: none; /* Para Safari */
-  -moz-appearance: none; /* Para Firefox */
-  width: auto; /* Ajustar automáticamente el ancho */
-  max-width: 180px; /* Ancho máximo */
+  font-size: 14px;
+  /* Reducido tamaño de la fuente */
+  padding: 0 1em;
+  /* Reducido espaciado interno */
+  border-radius: 6px;
+  /* Bordes más redondeados */
+  border: 2px solid #2563eb;
+  /* Color del borde */
+  background-color: #f0f4f8;
+  /* Color de fondo */
+  color: #333;
+  /* Color de texto */
+  cursor: pointer;
+  /* Cambio de cursor */
+  transition: all 0.3s ease;
+  /* Transición suave */
+  appearance: none;
+  /* Quita el estilo predeterminado en algunos navegadores */
+  -webkit-appearance: none;
+  /* Para Safari */
+  -moz-appearance: none;
+  /* Para Firefox */
+  width: auto;
+  /* Ajustar automáticamente el ancho */
+  max-width: 180px;
+  /* Ancho máximo */
   height: 30px;
-  margin-left: 10px; /* Añadido margen a la izquierda para moverlo hacia la derecha */
+  margin-left: 10px;
+  /* Añadido margen a la izquierda para moverlo hacia la derecha */
 }
 
 .flecha-abajo {
@@ -110,7 +133,8 @@ body {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 20px solid black; /* Cambia el color si es necesario */
+  border-top: 20px solid black;
+  /* Cambia el color si es necesario */
 }
 
 
@@ -118,44 +142,57 @@ body {
 
 /* Estilo para las opciones */
 .categorias_opciones option {
-  padding: 8px; /* Reducido espaciado de las opciones */
-  background-color: #ffffff; /* Fondo de las opciones */
-  color: #333; /* Color de texto */
-  border-bottom: 1px solid #ccc; /* Línea debajo de las opciones */
+  padding: 8px;
+  /* Reducido espaciado de las opciones */
+  background-color: #ffffff;
+  /* Fondo de las opciones */
+  color: #333;
+  /* Color de texto */
+  border-bottom: 1px solid #ccc;
+  /* Línea debajo de las opciones */
 }
 
 /* Estilo cuando el select tiene el foco (cuando está seleccionado) */
 .categorias_opciones:focus {
-  border-color: #2563eb; /* Cambia el color del borde al hacer foco */
-  outline: none; /* Elimina el borde por defecto */
+  border-color: #2563eb;
+  /* Cambia el color del borde al hacer foco */
+  outline: none;
+  /* Elimina el borde por defecto */
 }
 
 /* Estilo al pasar el mouse por encima de las opciones */
 .categorias_opciones option:hover {
-  background-color: #2563eb; /* Fondo al pasar el mouse */
-  color: #fff; /* Color del texto al pasar el mouse */
+  background-color: #2563eb;
+  /* Fondo al pasar el mouse */
+  color: #fff;
+  /* Color del texto al pasar el mouse */
 }
 
 /* Opciones especiales */
 .categorias_opciones option:first-child {
-  font-weight: bold; /* Destacar la opción "Categorias" */
-  color: #aaa; /* Color gris para la opción predeterminada */
+  font-weight: bold;
+  /* Destacar la opción "Categorias" */
+  color: #aaa;
+  /* Color gris para la opción predeterminada */
 }
 
 /* Opciones seleccionadas */
 .categorias_opciones:focus option {
-  color: #333; /* Color de texto cuando se selecciona una opción */
+  color: #333;
+  /* Color de texto cuando se selecciona una opción */
 }
 
 
-/* From Uiverse.io by Allyhere */ 
+/* From Uiverse.io by Allyhere */
 .btn-donate {
   width: 110px;
   position: relative;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  padding-block: 0.35rem; /* Reducido */
-  padding-inline: 1rem; /* Reducido */
+  padding-block: 0.35rem;
+  /* Reducido */
+  padding-inline: 1rem;
+  /* Reducido */
   background-color: #2563eb;
   border-radius: 9999px;
   display: flex;
@@ -163,13 +200,16 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #ffff;
-  gap: 8px; /* Reducido */
+  gap: 8px;
+  /* Reducido */
   font-weight: bold;
   border: 3px solid #ffffff4d;
   outline: none;
   overflow: hidden;
-  font-size: 13px; /* Reducido */
-  margin-left: 10px; /* Mueve el botón hacia la derecha */
+  font-size: 13px;
+  /* Reducido */
+  margin-left: 10px;
+  /* Mueve el botón hacia la derecha */
 }
 
 .btn-donate:hover {
@@ -188,27 +228,29 @@ body {
 .btn-donate::before {
   content: "";
   position: absolute;
-  width: 80px; /* Reducido */
+  width: 80px;
+  /* Reducido */
   height: 100%;
-  background-image: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0) 70%
-  );
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%);
   top: 0;
-  left: -80px; /* Reducido */
+  left: -80px;
+  /* Reducido */
   opacity: 0.6;
 }
 
 @keyframes shine {
   0% {
-    left: -80px; /* Reducido */
+    left: -80px;
+    /* Reducido */
   }
 
   60% {
     left: 100%;
   }
+
   to {
     left: 100%;
   }
@@ -216,13 +258,15 @@ body {
 
 
 
-/* From Uiverse.io by adeladel522 */ 
+/* From Uiverse.io by adeladel522 */
 .button {
   position: relative;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-  padding-block: 0.35rem; /* Reducido */
-  padding-inline: 1rem; /* Reducido */
+  padding-block: 0.35rem;
+  /* Reducido */
+  padding-inline: 1rem;
+  /* Reducido */
   background-color: #2563eb;
   border-radius: 9999px;
   display: flex;
@@ -230,19 +274,24 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #ffff;
-  gap: 8px; /* Reducido */
+  gap: 8px;
+  /* Reducido */
   font-weight: bold;
   border: 3px solid #ffffff4d;
   outline: none;
   overflow: hidden;
-  font-size: 13px; /* Reducido */
-  margin-left: 10px; /* Mueve el botón hacia la derecha */
+  font-size: 13px;
+  /* Reducido */
+  margin-left: 10px;
+  /* Mueve el botón hacia la derecha */
 
 }
 
 .icon {
-  width: 20px; /* Reducido */
-  height: 20px; /* Reducido */
+  width: 20px;
+  /* Reducido */
+  height: 20px;
+  /* Reducido */
   transition: all 0.3s ease-in-out;
 }
 
@@ -262,27 +311,29 @@ body {
 .button::before {
   content: "";
   position: absolute;
-  width: 80px; /* Reducido */
+  width: 80px;
+  /* Reducido */
   height: 100%;
-  background-image: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0) 70%
-  );
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%);
   top: 0;
-  left: -80px; /* Reducido */
+  left: -80px;
+  /* Reducido */
   opacity: 0.6;
 }
 
 @keyframes shine {
   0% {
-    left: -80px; /* Reducido */
+    left: -80px;
+    /* Reducido */
   }
 
   60% {
     left: 100%;
   }
+
   to {
     left: 100%;
   }
@@ -362,13 +413,25 @@ body {
   }
 }
 
-/*-----------------------------------Parte inferior del proyecto (Cuadros)-----------------------------------*/
+/*-----------------------------------Parte intermedia del proyecto-----------------------------------*/
 
-.informacion_basica{
+.intermedio_basico {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+
+
+.informacion_basica {
+  font-size: 1.2rem;
   background-color: aqua;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 8%;
   width: 260px;
+  height: 60px;
+  border: 3px;
+  border-radius: 6px;
 }
