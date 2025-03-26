@@ -435,3 +435,30 @@ body {
   border: 3px;
   border-radius: 6px;
 }
+
+
+.intermedio_info{
+  background-color: blueviolet;
+  height: 400px;
+  margin: 60px;
+  margin-top: 150px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_info{
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .info_basica_inferior{
+  font-size: 1.2rem;
+  background-color: aqua;
+  height: 50px;
+} */
