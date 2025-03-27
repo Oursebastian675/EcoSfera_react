@@ -28,16 +28,16 @@ function Intermedio() {
         <div>djdjdj</div></div>
     <div className="info_basica_inferior">
         <img className="img_info" src={Amano} alt="Hecho a mano" />
-        kakaka</div>
+       <div>ajajja</div></div>
     <div className="info_basica_inferior">
         <img className="img_info" src={Ingredientes} alt="Ingredientes naturales" />
-        kakaka</div>
+        <div>jsjsjs</div></div>
     <div className="info_basica_inferior">
         <img className="img_info" src={Animal} alt="Libre de crueldad animal" />
-        kakaka</div>
+        <div>jsjsjs</div></div>
     <div className="info_basica_inferior">
         <img className="img_info" src={Sulfato} alt="" />
-        kakaka</div>
+        <div>jsjsjs</div></div>
 
 </div>
 
