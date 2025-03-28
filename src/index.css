@@ -437,8 +437,8 @@ body {
 }
 
 
-.intermedio_info{
-  background-color: blueviolet;
+.intermedio_info {
+  background: linear-gradient(to top, rgba(37, 99, 235, 0), rgba(72, 122, 231, 0.827));
   height: 400px;
   margin: 60px;
   margin-top: 150px;
@@ -446,14 +446,36 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(70px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .img_info{
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 20px;
-  margin: 5px;
+  margin: 8px;
   justify-content: center;
   align-items: center;
 }
 
+.texto_imagenes_arriba{
+  font-size: 1.4rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.productos_intermedio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.img_producto_intermedio{
+  width: 150px;
+  margin: 50px;
+}
