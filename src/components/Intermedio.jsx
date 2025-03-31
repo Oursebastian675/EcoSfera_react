@@ -11,7 +11,8 @@ import Hilo from "../assets/producto_hilo_dental_seda.jpeg";
 import ShampooCafe from "../assets/producto_shampoo_de_cafe.jpeg";
 import Shampoo from "../assets/producto_shampoo.jpeg";
 import Snacks from "../assets/producto_snacks_organicos.jpeg";
-import { FaTag } from 'react-icons/fa';  // Add this import at the top
+import Banner from "../assets/banerVerticalProductos.jpg";
+import { FaTag } from 'react-icons/fa';
 
 
 function Intermedio() {
@@ -105,8 +106,15 @@ function Intermedio() {
                     <div className="texto_img_intermedio">$6.950</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
+            </div>
 
+            <div className="banner">
+                <img className="img_banner" src={Banner} alt="Banner" />
+                <p> <strong>Productos completamente naturales.</strong>
 
+                    En EcoSfera, creemos en el poder de la naturaleza para cuidar tu bienestar y resaltar tu belleza de manera saludable y sostenible. Nuestros productos están elaborados con ingredientes 100% naturales, orgánicos y de origen ético, sin aditivos ni productos químicos. Cada fórmula está pensada para brindarte la mejor experiencia sin comprometer la salud de tu piel ni el medio ambiente.
+
+                    <div>En EcoSfera, cada uno de nuestros productos es una apuesta por un estilo de vida más natural, consciente y saludable. Disfruta de lo mejor que la naturaleza tiene para ofrecer y transforma tu rutina de cuidado personal con nuestra línea de productos naturales.</div></p>
             </div>
 
         </section>

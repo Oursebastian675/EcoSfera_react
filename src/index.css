@@ -518,3 +518,39 @@ body {
     background-color: #1d4ed8;
     transform: scale(1.05);
 }
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.img_banner {
+  width: 450px;
+  height: 700px;
+  margin-top: 150px;
+  margin-right: 20vh;
+  border-radius: 10px;
+}
+
+.banner p {
+  width: 450px;
+  margin-top: 150px;
+  padding: 40px;
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 1.1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.banner p strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: black;
+}
