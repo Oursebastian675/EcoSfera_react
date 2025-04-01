@@ -1,6 +1,7 @@
 import Encabezado from "../components/Encabezado.jsx"
 import Carrusel from "../components/Carrusel.jsx"
 import Intermedio from "../components/Intermedio.jsx";
+import Pie from "../components/Pie.jsx";
 
 function Inicio() {
     return (
@@ -8,6 +9,7 @@ function Inicio() {
             <Encabezado />
             <Carrusel />
             <Intermedio />
+            <Pie />
         </section>
     )
 }

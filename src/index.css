@@ -554,3 +554,35 @@ body {
   text-align: center;
   color: black;
 }
+
+/*-----------------------------------Footer(pie de pagina) del proyecto-----------------------------------*/
+
+
+.sobre_footer {
+  background-color: #2563eb;
+  height: 20vh;
+  width: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  margin: 100px auto 50px auto;
+  border-radius: 10px;
+  border: white solid 4px;
+}
+
+.Links_infor {
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.Links_infor a {
+    margin: 40px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.Links_infor a:hover {
+    color: #e5e7eb;
+}
