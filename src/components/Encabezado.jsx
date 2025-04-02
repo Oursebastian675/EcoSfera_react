@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/logoEcoSfera.png";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Encabezado() {
     const navigate = useNavigate();
@@ -67,9 +68,8 @@ function Encabezado() {
                     <button className="btn-donate">Blog</button>
 
                     {/* Botón para ingresar */}
-                    <button className="button" onClick={handleLoginClick}>
-                        INGRESAR
-                    </button>
+                    <Link className="button" to="/login"> 
+                        INGRESAR</Link>
 
                     {/* Carrito de compras (vacío por ahora) */}
                     <div className="carrito_compras"></div>

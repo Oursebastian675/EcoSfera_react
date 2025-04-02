@@ -11,11 +11,6 @@ function Inicio() {
             <Carrusel />
             <Intermedio />
             <Pie />
-
-            <div>
-                <h1>Bienvenido a la Página Principal</h1>
-                <Link to="/login">Ir a Login</Link> {/* Enlace que lleva a la página de Login */}
-            </div>
         </section>
     )
 }
