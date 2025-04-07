@@ -9,5 +9,9 @@ export let enrutador = [
     {
         path: '/login',
         element: <Login />
-    }
+    },
+    {
+        path: '/blog',
+        element: <Blog />
+    },
 ];
