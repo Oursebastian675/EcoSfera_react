@@ -9,6 +9,11 @@ function Pie() {
             <div className="Links_infor"> <a href="">Politica de reembolso</a></div>
         </div>
         
+        <div className="footer">
+        <div className="texto_footer">Medellin-Colombia</div>
+        <div className="texto_footer">Programa: Tecnico Auxiliar en desarrollo Web</div>
+        </div>
+        
         </footer>
     )
 }

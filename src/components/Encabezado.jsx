@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../assets/logoEcoSfera.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import "./Encabezado.css";
 
 function Encabezado() {
     const navigate = useNavigate();
@@ -65,11 +66,11 @@ function Encabezado() {
                     </select>
                     </div>
                     {/* Botón Blog */}
-                    <button className="btn-donate">Blog</button>
+                    <Link className="btn-donate" to="/blog">Blog</Link>
 
                     {/* Botón para ingresar */}
                     <Link className="button" to="/login"> 
-                        INGRESAR</Link>
+                        Ingresar</Link>
 
                     {/* Carrito de compras (vacío por ahora) */}
                     <div className="carrito_compras"></div>
