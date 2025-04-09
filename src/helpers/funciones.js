@@ -30,12 +30,14 @@ export function alertaRedireccion(redireccion, path, mensaje) {
             Swal.showLoading();
             const timer = Swal.getPopup().querySelector("b");
             timerInterval = setInterval(() => {
-                timer.textContent = `${Math.ceil(Swal.getTimerLeft() / 1000)}`; // Mostrar la cuenta regresiva
+                timer.textContent = `${Math.ceil(Swal.getTimerLeft() / 1000)}`;
             }, 1000);
         },
         willClose: () => {
-            clearInterval(timerInterval); // Limpiar el intervalo después de que la alerta se cierre
-            redireccion(path); // Redirigir al path cuando la alerta se cierre
+            clearInterval(timerInterval);
+            redireccion('/'); // Changed to redirect to home page
         }
-    })
+    }).then(() => {
+        window.location.reload(); // Added reload after redirection 
+    });
 }
