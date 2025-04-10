@@ -21,11 +21,11 @@ function Login() {
             alertaConfirmacion();
 
             // Llamar a la alerta de redirección y redirigir después de 2 segundos
-            alertaRedireccion(navigate, "/inicio", "¡Bienvenido!");
+            alertaRedireccion(navigate, "/", "¡Bienvenido!" +  user.nombre);
 
             // Redirigir al usuario a la página "inicio" después de 2 segundos
             setTimeout(() => {
-                navigate("/inicio"); // Redirigir a la página de inicio
+                navigate("/"); // Redirigir a la página de inicio
             }, 2000); // Esperar 2 segundos antes de redirigir
         } else {
             // Si las credenciales son incorrectas, mostrar la alerta de error
