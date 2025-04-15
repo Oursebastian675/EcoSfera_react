@@ -1,5 +1,6 @@
 import Inicio from '../pages/Inicio';
 import Login from '../pages/Login';
+import Blog from '../pages/Blog';
 
 export let enrutador = [
     {
@@ -9,9 +10,9 @@ export let enrutador = [
     {
         path: '/login',
         element: <Login />
-    },/* 
+    },
     {
         path: '/blog',
         element: <Blog />
-    }, */
+    },
 ];

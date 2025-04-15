@@ -1,0 +1,30 @@
+.Contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.blog_img{
+    width: 280px;
+    height: 200px;
+}
+.logo_blog{
+    width: 30px;
+    height: 30px;  
+}
+
+.Contenido_blog{
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+}
+
+.Cuadro_blog{
+    width: 280px;
+    height: 500px;
+    background-color: #ffffff;
+    display: flex;
+    margin: 5%;
+
+}
