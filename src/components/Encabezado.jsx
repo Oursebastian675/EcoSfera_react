@@ -20,8 +20,9 @@ function Encabezado() {
         <header>
             <div className="contenedor">
                 <div className="cabecera">
-                    <div className="logo">
-                    <img src={Logo} alt="Logo EcoSfera" />
+                <Link className="Inicio_cabe" to="/"> 
+                    <div className="logo" >
+                    <img  src={Logo} alt="Logo EcoSfera" />
                     </div>
                     <div className="titulo">
                         <p>Eco</p>
@@ -29,6 +30,7 @@ function Encabezado() {
                     <div className="titulo2">
                         <span>Sfera</span>
                     </div>
+                    </Link>
 
                     {/* Buscador */}
                     <div className="group">

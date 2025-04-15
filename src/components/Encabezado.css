@@ -6,6 +6,7 @@
     max-width: 100%;
   }
   
+  
   .cabecera {
     width: 100%;
     height: 12vh;
@@ -25,20 +26,28 @@
     font-size: 3.5rem;
     font-weight: bold;
     color: #000000;
-    margin: 0;
-    transition: color 0.3s;
-    margin-left: 1.5%;
+    margin-left: 10%;
     height: 85px;
   }
   
   .titulo2 {
-    font-size: 1.8rem;
+    margin-bottom: 0%;
+    font-size: 1.7rem;
     color: #000000;
-    margin: 0;
-    transition: color 0.3s;
-    margin-right: 35%;
   }
   
+  .Inicio_cabe{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30%;
+    text-decoration: none;
+  }
+  
+  .Inicio_cabe a {
+    text-decoration: none;
+    color: inherit;
+  }
   
   /* From Uiverse.io by JaydipPrajapati1910 */
   .group {
