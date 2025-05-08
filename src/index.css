@@ -149,21 +149,19 @@ body {
 
 .img_producto_intermedio {
   width: 150px;
- margin: 6px;
+  align-items: center;
+  margin: 6px;
   border-radius: 10px;
   border: white solid 5px;
 }
 
 .texto_img_intermedio {
+  text-align: center;
+  font-weight: bold;
   font-size: 1.2rem;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center; 
   margin: 2px;
-}
-
-.icon-tag {
-  font-size: 0.8em;
-  margin-right: 5px;
 }
 
 .btn-add-cart {
@@ -227,7 +225,7 @@ body {
 
 
 .sobre_footer {
-  background-color: #2563eb;
+  background-color: rgba(87, 100, 87);
   height: 20vh;
   width: 150vh;
   display: flex;
@@ -261,7 +259,7 @@ body {
 
 
 .footer {
-  background-color: #2563eb;
+  background-color: rgba(87, 100, 87);
   min-height: 10vh;
   width: 150vh;
   display: flex;

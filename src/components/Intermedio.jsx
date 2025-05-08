@@ -58,50 +58,50 @@ function Intermedio() {
             <div className="productos_intermedio">
                 <div >
                     <img className="img_producto_intermedio" src={Esmalte} alt="Esmalte ecologico" />
-                    <div className="texto_img_intermedio"><FaTag className="icon-tag" />Esmalte</div>
+                    <div className="texto_img_intermedio">Esmalte</div>
                     <div className="texto_img_intermedio">$5.950</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Bloqueador} alt="Bloqueador solar" />
-                    <div className="texto_img_intermedio"><FaTag className="icon-tag" />Bloqueador</div>
+                    <div className="texto_img_intermedio">Bloqueador</div>
                     <div className="texto_img_intermedio">$21.000</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Cesto} alt="Cesto de fibras naturales" />
-                    <div className="texto_img_intermedio"><FaTag className="icon-tag" />Cesta de fibras</div>
+                    <div className="texto_img_intermedio">Cesta de fibras</div>
                     <div className="texto_img_intermedio">$15.000</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Cortinas} alt="Cortinas de algodon" />
-                    <div className="texto_img_intermedio"> <FaTag className="icon-tag" />Cortinas de algodon</div>
+                    <div className="texto_img_intermedio"> Cortinas de algodon</div>
                     <div className="texto_img_intermedio">$17.950</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Hilo} alt="Hilo dental" />
-                    <div className="texto_img_intermedio"> <FaTag className="icon-tag" />Hilo dental de seda</div>
+                    <div className="texto_img_intermedio"> Hilo dental de seda</div>
                     <div className="texto_img_intermedio">$5.950</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={ShampooCafe} alt="Shampoo de café" />
-                    <div className="texto_img_intermedio"> <FaTag className="icon-tag" />Shampoo de cafe</div>
+                    <div className="texto_img_intermedio"> Shampoo de cafe</div>
                     <div className="texto_img_intermedio">$19.999</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Shampoo} alt="Shampoo" />
-                    <div className="texto_img_intermedio"> <FaTag className="icon-tag" />Shampoo</div>
+                    <div className="texto_img_intermedio"> Shampoo</div>
                     <div className="texto_img_intermedio">$12.900</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
                 </div>
                 <div >
                     <img className="img_producto_intermedio" src={Snacks} alt="Snacks organicos" />
                     <div className="texto_img_intermedio">
-                        <FaTag className="icon-tag" />Snacks organicos
+                        Snacks organicos
                     </div>
                     <div className="texto_img_intermedio">$6.950</div>
                     <button className="btn-add-cart">Añadir al carrito</button>
