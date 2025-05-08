@@ -3,9 +3,9 @@
 }
 
 body {
-  background-image: url('/public/fondoEcoSfera.jpg');
+  background-image: url('/public/Fondo.jpg');
   background-position: center center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -93,7 +93,7 @@ body {
 
 .informacion_basica {
   font-size: 1.1rem;
-  background-color: aqua;
+  background-color: rgba(87, 100, 87);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,7 +106,7 @@ body {
 
 
 .intermedio_info {
-  background: linear-gradient(to top, rgba(37, 99, 235, 0), rgba(72, 122, 231, 0.827));
+  background: linear-gradient(to top, rgba(37, 99, 235, 0), rgba(87, 100, 87, 0.827));
   height: 400px;
   margin: 60px;
   margin-top: 150px;
@@ -167,7 +167,7 @@ body {
 }
 
 .btn-add-cart {
-    background-color: #2563eb;
+    background-color: rgba(87, 100, 87);
     color: white;
     border: none;
     padding: 8px 16px;
