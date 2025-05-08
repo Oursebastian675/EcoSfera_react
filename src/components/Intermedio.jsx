@@ -12,7 +12,6 @@ import ShampooCafe from "../assets/producto_shampoo_de_cafe.jpeg";
 import Shampoo from "../assets/producto_shampoo.jpeg";
 import Snacks from "../assets/producto_snacks_organicos.jpeg";
 import Banner from "../assets/banerVerticalProductos.jpg";
-import { FaTag } from 'react-icons/fa';
 
 
 function Intermedio() {

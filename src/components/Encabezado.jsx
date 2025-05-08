@@ -51,22 +51,27 @@ function Encabezado() {
                             onClick={handleSearchClick} // Optional: Adding search functionality
                         />
                     </div>
-
-                    {/* Selector de categorías */}
-                    <div>
+                    
+                    {/* <div>
                     <select
                         className="categorias_opciones"
                         name="categorias"
                         id="categoria"
                     >
                         
-                        <option value="">Categorías &darr;</option>
+                        <option value="categorias">Categorías &darr;</option>
                         <option value="aseoPersonal">Aseo personal</option>
                         <option value="hogar">Hogar</option>
                         <option value="bienestarYBelleza">Bienestar y belleza</option>
                         <option value="mascotas">Mascotas</option>
                     </select>
-                    </div>
+                    </div> */}
+
+
+
+
+                    
+
                     {/* Botón Blog */}
                     <Link className="btn-donate" to="/blog">Blog</Link>
 
