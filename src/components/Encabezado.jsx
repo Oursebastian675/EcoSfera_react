@@ -3,6 +3,7 @@ import Logo from "../assets/logoEcoSfera.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "./Encabezado.css";
+import SelectorDeCategorias from "./Categorias";
 
 function Encabezado() {
     const navigate = useNavigate();
@@ -52,20 +53,7 @@ function Encabezado() {
                         />
                     </div>
                     
-                    {/* <div>
-                    <select
-                        className="categorias_opciones"
-                        name="categorias"
-                        id="categoria"
-                    >
-                        
-                        <option value="categorias">Categorías &darr;</option>
-                        <option value="aseoPersonal">Aseo personal</option>
-                        <option value="hogar">Hogar</option>
-                        <option value="bienestarYBelleza">Bienestar y belleza</option>
-                        <option value="mascotas">Mascotas</option>
-                    </select>
-                    </div> */}
+<SelectorDeCategorias />
 
 
 
