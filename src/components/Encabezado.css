@@ -334,3 +334,38 @@
       left: 100%;
     }
   }
+
+  .carrito-container {
+    position: relative;
+    margin-left: 15px;
+}
+
+.carrito-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.carrito-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-width: 150px;
+}
+
+.carrito-opcion {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.carrito-opcion:hover {
+    background-color: #f0f0f0;
+}

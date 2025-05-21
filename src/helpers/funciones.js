@@ -41,3 +41,9 @@ export function alertaRedireccion(redireccion, path, mensaje) {
         window.location.reload(); // Added reload after redirection 
     });
 }
+
+//Funciones carrito de compras
+
+export default function addToCart() {
+const [showCartMenu, setShowCartMenu] = useState(false);
+}

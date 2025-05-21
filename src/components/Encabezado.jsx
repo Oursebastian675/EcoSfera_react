@@ -2,11 +2,14 @@ import React from "react";
 import Logo from "../assets/logoEcoSfera.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./Encabezado.css";
 import SelectorDeCategorias from "./Categorias";
+import addToCart from "../helpers/funciones";
 
 function Encabezado() {
     const navigate = useNavigate();
+    const [showCartMenu, setShowCartMenu] = useState(false);
 
     const handleSearchClick = () => {
         // Implement search functionality here
@@ -18,7 +21,7 @@ function Encabezado() {
     };
 
     return (
-        <header>
+        <header className="encabezado">
             <div className="contenedor">
                 <div className="cabecera">
                 <Link className="Inicio_cabe" to="/"> 
@@ -64,11 +67,22 @@ function Encabezado() {
                     <Link className="btn-donate" to="/blog">Blog</Link>
 
                     {/* Botón para ingresar */}
-                    <Link className="button" to="/login"> 
-                        Ingresar</Link>
+                    <Link className="button" to="/login">Ingresar</Link>
 
-                    {/* Carrito de compras (vacío por ahora) */}
-                    <div className="carrito_compras"></div>
+                    {/* Carrito de compras */}
+                    <div className="carrito-container" 
+                        onMouseEnter={() => setShowCartMenu(true)}
+                        onMouseLeave={() => setShowCartMenu(false)}>
+                        <button className="carrito-btn">
+                            🛒
+                        </button>
+                        {showCartMenu && (
+                            <div className="carrito-menu">
+                                <div className="carrito-opcion">Vaciar carrito</div>
+                                <div className="carrito-opcion">Comprar</div>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </header>
