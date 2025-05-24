@@ -5,19 +5,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Encabezado.css";
 import SelectorDeCategorias from "./Categorias";
-import addToCart from "../helpers/funciones";
+import { useCarShop } from './CarShop';
 
 function Encabezado() {
     const navigate = useNavigate();
+    const { cartItems, removeFromCart, clearCart } = useCarShop();
     const [showCartMenu, setShowCartMenu] = useState(false);
 
     const handleSearchClick = () => {
-        // Implement search functionality here
-        console.log('Search clicked!');
-    };
-
-    const handleLoginClick = () => {
-        navigate('/login'); // Assuming '/login' is the login route
+        // Implementar la funcionalidad de búsqueda aquí
+        console.log('Búsqueda clickeada!');
     };
 
     return (
@@ -74,12 +71,43 @@ function Encabezado() {
                         onMouseEnter={() => setShowCartMenu(true)}
                         onMouseLeave={() => setShowCartMenu(false)}>
                         <button className="carrito-btn">
-                            🛒
+                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16.5" cy="18.5" r="1.5"/>
+                                <circle cx="9.5" cy="18.5" r="1.5"/>
+                                <path d="M18 16H8a1 1 0 0 1-.958-.713L4.256 6H3a1 1 0 0 1 0-2h2a1 1 0 0 1 .958.713L6.344 6H21a1 1 0 0 1 .937 1.352l-3 8A1 1 0 0 1 18 16zm-9.256-2h8.563l2.25-6H6.944z"/>
+                            </svg>
+                            {cartItems.length > 0 && (
+                                <span className="cart-count">{cartItems.length}</span>
+                            )}
                         </button>
                         {showCartMenu && (
                             <div className="carrito-menu">
-                                <div className="carrito-opcion">Vaciar carrito</div>
-                                <div className="carrito-opcion">Comprar</div>
+                                <div className="carrito-productos">
+                                    {cartItems.length === 0 ? (
+                                        <div className="carrito-vacio">El carrito está vacío</div>
+                                    ) : (
+                                        cartItems.map(item => (
+                                            <div key={item.id} className="carrito-producto">
+                                                <img src={item.imagen} alt={item.nombre} />
+                                                <div className="carrito-producto-info">
+                                                    <div className="carrito-producto-nombre">{item.nombre}</div>
+                                                    <div className="carrito-producto-precio">${item.precio}</div>
+                                                    <div className="carrito-producto-cantidad">Cantidad: {item.quantity}</div>
+                                                </div>
+                                                <button 
+                                                    className="carrito-producto-eliminar"
+                                                    onClick={() => removeFromCart(item.id)}
+                                                >
+                                                    ×
+                                                </button>
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                                <div className="carrito-acciones">
+                                    <button className="carrito-opcion" onClick={clearCart}>Vaciar carrito</button>
+                                    <button className="carrito-opcion comprar">Comprar</button>
+                                </div>
                             </div>
                         )}
                     </div>

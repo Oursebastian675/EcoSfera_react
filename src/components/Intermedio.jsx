@@ -12,8 +12,12 @@ import ShampooCafe from "../assets/producto_shampoo_de_cafe.jpeg";
 import Shampoo from "../assets/producto_shampoo.jpeg";
 import Snacks from "../assets/producto_snacks_organicos.jpeg";
 import Banner from "../assets/banerVerticalProductos.jpg";
+import React from 'react';
+import { useCarShop } from './CarShop';
 
 function Intermedio() {
+    const { addToCart } = useCarShop();
+
     return (
         <section>
             <div className="intermedio_basico">
@@ -54,55 +58,98 @@ function Intermedio() {
 
 
             <div className="productos_intermedio">
-                <div >
-                    <img className="img_producto_intermedio" src={Esmalte} alt="Esmalte ecologico" />
-                    <div className="texto_img_intermedio">Esmalte</div>
-                    <div className="texto_img_intermedio">$5.950</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 501" />
+                    <div className="texto_img_intermedio">Producto 501</div>
+                    <div className="texto_img_intermedio">$10.000</div>
+                    <button 
+                        className="btn-add-cart" 
+                        onClick={() => addToCart({
+                            id: 501,
+                            nombre: "Producto 501",
+                            precio: 10000,
+                            imagen: ""
+                        })}
+                    >
+                        Añadir al carrito
+                    </button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Bloqueador} alt="Bloqueador solar" />
-                    <div className="texto_img_intermedio">Bloqueador</div>
-                    <div className="texto_img_intermedio">$21.000</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
-                </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Cesto} alt="Cesto de fibras naturales" />
-                    <div className="texto_img_intermedio">Cesta de fibras</div>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 502" />
+                    <div className="texto_img_intermedio">Producto 502</div>
                     <div className="texto_img_intermedio">$15.000</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 502,
+                        nombre: "Producto 502",
+                        precio: 15000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Cortinas} alt="Cortinas de algodon" />
-                    <div className="texto_img_intermedio"> Cortinas de algodon</div>
-                    <div className="texto_img_intermedio">$17.950</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 503" />
+                    <div className="texto_img_intermedio">Producto 503</div>
+                    <div className="texto_img_intermedio">$20.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 503,
+                        nombre: "Producto 503",
+                        precio: 20000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Hilo} alt="Hilo dental" />
-                    <div className="texto_img_intermedio"> Hilo dental de seda</div>
-                    <div className="texto_img_intermedio">$5.950</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 504" />
+                    <div className="texto_img_intermedio">Producto 504</div>
+                    <div className="texto_img_intermedio">$25.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 504,
+                        nombre: "Producto 504",
+                        precio: 25000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={ShampooCafe} alt="Shampoo de café" />
-                    <div className="texto_img_intermedio"> Shampoo de cafe</div>
-                    <div className="texto_img_intermedio">$19.999</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 505" />
+                    <div className="texto_img_intermedio">Producto 505</div>
+                    <div className="texto_img_intermedio">$25.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 505,
+                        nombre: "Producto 505",
+                        precio: 25000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Shampoo} alt="Shampoo" />
-                    <div className="texto_img_intermedio"> Shampoo</div>
-                    <div className="texto_img_intermedio">$12.900</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 506" />
+                    <div className="texto_img_intermedio">Producto 506</div>
+                    <div className="texto_img_intermedio">$25.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 506,
+                        nombre: "Producto 506",
+                        precio: 15000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
-                <div >
-                    <img className="img_producto_intermedio" src={Snacks} alt="Snacks organicos" />
-                    <div className="texto_img_intermedio">
-                        Snacks organicos
-                    </div>
-                    <div className="texto_img_intermedio">$6.950</div>
-                    <button className="btn-add-cart">Añadir al carrito</button>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 507" />
+                    <div className="texto_img_intermedio">Producto 507</div>
+                    <div className="texto_img_intermedio">$25.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 507,
+                        nombre: "Producto 507",
+                        precio: 15000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
+                </div>
+                <div>
+                    <img className="img_producto_intermedio" src="" alt="Producto 508" />
+                    <div className="texto_img_intermedio">Producto 508</div>
+                    <div className="texto_img_intermedio">$25.000</div>
+                    <button className="btn-add-cart" onClick={() => addToCart({
+                        id: 508,
+                        nombre: "Producto 508",
+                        precio: 15000,
+                        imagen: ""
+                    })}>Añadir al carrito</button>
                 </div>
             </div>
 
@@ -110,7 +157,7 @@ function Intermedio() {
                 <img className="img_banner" src={Banner} alt="Banner" />
                 <p> <strong>Productos completamente naturales.</strong>
 
-                    En EcoSfera, creemos en el poder de la naturaleza para cuidar tu bienestar y resaltar tu belleza de manera saludable y sostenible. Nuestros productos están elaborados con ingredientes 100% naturales, orgánicos y de origen ético, sin aditivos ni productos químicos. Cada fórmula está pensada para brindarte la mejor experiencia sin comprometer la salud de tu piel ni el medio ambiente.
+                    En EcoSfera, creemos en el poder de la naturaleza para cuidar tu bienestar y resaltar tu belleza de manera saludable y sostenible. Nuestros productos están elaborados con ingredientes 100% naturales, orgámicos y de origen ético, sin aditivos ni productos químicos. Cada fórmula está pensada para brindarte la mejor experiencia sin comprometer la salud de tu piel ni el medio ambiente.
 
                     <div>En EcoSfera, cada uno de nuestros productos es una apuesta por un estilo de vida más natural, consciente y saludable. Disfruta de lo mejor que la naturaleza tiene para ofrecer y transforma tu rutina de cuidado personal con nuestra línea de productos naturales.</div></p>
             </div>

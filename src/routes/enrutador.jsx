@@ -4,12 +4,17 @@ import Blog from '../pages/Blog';
 import AseoPersonal from '../pages/AseoPersonal';
 import BienestarYBelleza from '../pages/BienestarYBelleza';
 import Hogar from '../pages/Hogar';
-import Mascotras from '../pages/Mascotas';
+import Mascotas from '../pages/Mascotas';
+import { CarShopProvider } from '../components/CarShop';
 
 export let enrutador = [
     {
         path: '/',
-        element: <Inicio />
+        element: (
+            <CarShopProvider>
+                <Inicio />
+            </CarShopProvider>
+        )
     },
     {
         path: '/login',
@@ -17,23 +22,42 @@ export let enrutador = [
     },
     {
         path: '/blog',
-        element: <Blog />
+        element: (
+            <CarShopProvider>
+                <Blog />
+            </CarShopProvider>
+        )
     },
     {
         path: '/productos/aseo-personal',
-        element: <AseoPersonal /> 
+        element: (
+            <CarShopProvider>
+                <AseoPersonal />
+            </CarShopProvider>
+        )
     },
     {
         path: '/productos/bienestar',
-        element: <BienestarYBelleza /> 
+        element: (
+            <CarShopProvider>
+                <BienestarYBelleza />
+            </CarShopProvider>
+        )
     },
     {
         path: '/productos/hogar',
-        element: <Hogar /> 
+        element: (
+            <CarShopProvider>
+                <Hogar />
+            </CarShopProvider>
+        )
     },
     {
         path: '/productos/mascotas',
-        element: <Mascotras />
+        element: (
+            <CarShopProvider>
+                <Mascotas />
+            </CarShopProvider>
+        )
     },
-
 ];
