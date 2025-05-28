@@ -17,6 +17,11 @@ function Encabezado() {
         console.log('Búsqueda clickeada!');
     };
 
+    const handleCheckout = () => {
+        navigate('/checkout');
+        setShowCartMenu(false);
+    };
+
     return (
         <header className="encabezado">
             <div className="contenedor">
@@ -70,6 +75,8 @@ function Encabezado() {
                     <div className="carrito-container" 
                         onMouseEnter={() => setShowCartMenu(true)}
                         onMouseLeave={() => setShowCartMenu(false)}>
+
+
                         <button className="carrito-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="16.5" cy="18.5" r="1.5"/>
@@ -104,9 +111,10 @@ function Encabezado() {
                                         ))
                                     )}
                                 </div>
+                                
                                 <div className="carrito-acciones">
                                     <button className="carrito-opcion" onClick={clearCart}>Vaciar carrito</button>
-                                    <button className="carrito-opcion comprar">Comprar</button>
+                                    <button className="carrito-opcion comprar" onClick={handleCheckout}>Comprar</button>
                                 </div>
                             </div>
                         )}

@@ -1,10 +1,9 @@
-/* From Uiverse.io by andrew-demchenk0 */ 
 .form {
-  --input-focus: #e74c3c;
+  --input-focus: #2563eb;
   --font-color: #fff;
-  --font-color-sub: #ccc;
-  --bg-color: #2c3e50;
-  --main-color: #e74c3c;
+  --font-color-sub: #E8F5E9;
+  --bg-color:#333;/* Changed to a gray color */
+  --main-color: #000000; /* Changed to a gray color */
   padding: 20px;
   background: var(--bg-color);
   display: flex;
@@ -12,7 +11,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
   position: absolute;
@@ -38,7 +37,7 @@
 .input {
   width: 250px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
   box-shadow: 4px 4px var(--main-color);
@@ -76,6 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .icon {
@@ -84,7 +84,8 @@
   fill: var(--main-color);
 }
 
-.button-log:active, .button-confirm:active {
+.button-log:active, 
+.button-confirm:active {
   box-shadow: 0px 0px var(--main-color);
   transform: translate(3px, 3px);
 }
@@ -93,7 +94,7 @@
   margin: 50px auto 0 auto;
   width: 120px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
   box-shadow: 4px 4px var(--main-color);
@@ -101,4 +102,59 @@
   font-weight: 600;
   color: var(--font-color);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-log:hover,
+.button-confirm:hover {
+  background-color: var(--input-focus);
+  color: var(--bg-color);
+}
+
+.register-option{
+  color: var(--font-color);
+  font-size: 14px;
+  margin-left: 28px;
+}
+.button-register{
+  color: var(--input-focus);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+.back{
+  position: absolute;
+  top: 160px;
+  left: 601px;
+  background-color: #333;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 27%;
+  transition: background-color 0.3s;
+}
+
+.back:hover {
+  background-color: #000000;
+}
+
+.back-regis{
+  position: absolute;
+  top: 115px;
+  left: 602px;
+  background-color: #333;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 27%;
+  transition: background-color 0.3s;
+}
+.back-regis:hover {
+  background-color: #000000;
 }

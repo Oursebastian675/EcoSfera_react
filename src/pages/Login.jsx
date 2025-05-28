@@ -9,6 +9,12 @@ function Login() {
     const [password, setPassword] = useState(""); // Estado para la contraseña
     const navigate = useNavigate(); // Hook para redirección
 
+    const handleGoBack = () => {
+        navigate(-1);
+    };
+
+
+    
     // Función para verificar las credenciales del usuario
     const handleSubmit = (e) => {
         e.preventDefault(); // Evitar que se recargue la página al enviar el formulario
@@ -33,8 +39,16 @@ function Login() {
         }
     };
 
+            
     return (
+        <div>
+             
+        
+             <button onClick={handleGoBack} className="back">←</button>
         <form className="form" onSubmit={handleSubmit}>
+            
+           
+           
             <div className="title">Bienvenido,<br /><span>Ingresa tus datos</span></div>
 
             <input
@@ -54,8 +68,16 @@ function Login() {
             />
 
             <button type="submit" className="button-confirm">Ingresar →</button>
-        </form>
-    );
-}
 
-export default Login;
+            <p className="register-option">
+                ¿No tienes una cuenta? <a className="button-register" href="/registro">Regístrate</a>
+            </p>
+
+            </form>
+            </div>
+        );
+        
+
+    }
+
+        export default Login;
