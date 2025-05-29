@@ -2,14 +2,23 @@ import Encabezado from "../components/Encabezado";
 import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
+
+import shampooMascotasImg from '../assets/shampoo_mascotas.jpg';
+import cepilloCerdasImg from '../assets/cepillo_cerdas.jpg';
+import hidrataImg from '../assets/hidrata.jpg';
+import limaImg from '../assets/lima.jpg';
+
+
 function BienestarYBelleza() {
     const { addToCart } = useCarShop();
-    const productos = [
-        { id: 201, nombre: "Producto 1", precio: 15000, imagen: "" },
-        { id: 202, nombre: "Producto 2", precio: 25000, imagen: "" },
-        { id: 203, nombre: "Producto 3", precio: 35000, imagen: "" },
-        { id: 204, nombre: "Producto 4", precio: 45000, imagen: "" }
-    ];
+    
+   const productos = [
+    { id: 201, nombre: "Shampoo hipoalergénico para mascotas", precio: 15000, imagen: shampooMascotasImg },
+    { id: 202, nombre: "Cepillo desenredante o de cerdas suaves", precio: 25000, imagen: cepilloCerdasImg },
+    { id: 203, nombre: "Aceite o Spray hidratante para el pelaje", precio: 35000, imagen: hidrataImg },
+    { id: 204, nombre: "Lima", precio: 45000, imagen: limaImg }
+];
+
 
     return (
         <div>
