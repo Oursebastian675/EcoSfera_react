@@ -2,14 +2,22 @@ import Encabezado from "../components/Encabezado";
 import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
+import jabonNaturalImg from '../assets/jabon_natural.webp';
+import bolsaAlgodonImg from '../assets/bolsa-algodon-organico.jpg';
+import velasSoyaImg from '../assets/velas.webp';
+import cepillosReutilizablesImg from '../assets/cepillos.jpg';
+
+
 function Hogar() {
     const { addToCart } = useCarShop();
-    const productos = [
-        { id: 301, nombre: "Producto 1", precio: 50000, imagen: "" },
-        { id: 302, nombre: "Producto 2", precio: 60000, imagen: "" },
-        { id: 303, nombre: "Producto 3", precio: 70000, imagen: "" },
-        { id: 304, nombre: "Producto 4", precio: 80000, imagen: "" }
-    ];
+    
+   const productos = [
+    { id: 301, nombre: "Jabón Natural", precio: 50000, imagen: jabonNaturalImg },
+    { id: 302, nombre: "Bolsa Reutilizable", precio: 60000, imagen: bolsaAlgodonImg },
+    { id: 303, nombre: "Velas de cera de soya con aceites esenciales", precio: 70000, imagen: velasSoyaImg },
+    { id: 304, nombre: "Cepillos Reutilizables", precio: 80000, imagen: cepillosReutilizablesImg }
+];
+
 
     return (
         <div>

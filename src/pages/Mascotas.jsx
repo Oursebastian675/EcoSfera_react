@@ -2,15 +2,21 @@ import Encabezado from "../components/Encabezado";
 import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
+import cepilloImg from '../assets/cepillo.jpg';
+import shampooImg from '../assets/shampoo.jpg';
+import cortauñasImg from '../assets/cortauñas.jpg';
+import toallitasImg from '../assets/toallitas.jpg';
+
+
 function Mascotas() {
     const { addToCart } = useCarShop();
-    const productos = [
-        { id: 401, nombre: "Producto 1", precio: 90000, imagen: "" },
-        { id: 402, nombre: "Producto 2", precio: 100000, imagen: "" },
-        { id: 403, nombre: "Producto 3", precio: 110000, imagen: "" },
-        { id: 404, nombre: "Producto 4", precio: 120000, imagen: "" }
-    ];
-
+  const productos = [
+      { id: 101, nombre: "Cepillo o peine para mascotas", precio: 10000, imagen: cepilloImg },
+      { id: 102, nombre: "Shampoo para mascotas", precio: 20000, imagen: shampooImg },
+      { id: 103, nombre: "Cortaúñas para mascotas", precio: 30000, imagen: cortauñasImg },
+      { id: 104, nombre: "Toallitas húmedas para mascotas", precio: 40000, imagen: toallitasImg }
+  ];
+  
     return (
         <div>
             <Encabezado/>

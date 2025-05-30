@@ -3,14 +3,22 @@ import Pie from "../components/Pie";
 import "./Productos.css";
 import { useCarShop } from '../components/CarShop';
 
+
+import cepilloImg from '../assets/cepillo.jpg';
+import shampooImg from '../assets/shampoo.jpg';
+import cortauñasImg from '../assets/cortauñas.jpg';
+import toallitasImg from '../assets/toallitas.jpg';
+
+
 function AseoPersonal() {
     const { addToCart } = useCarShop();
-    const productos = [
-        { id: 101, nombre: "Producto 1", precio: 10000, imagen: "" },
-        { id: 102, nombre: "Producto 2", precio: 20000, imagen: "" },
-        { id: 103, nombre: "Producto 3", precio: 30000, imagen: "" },
-        { id: 104, nombre: "Producto 4", precio: 40000, imagen: "" }
-    ];
+    
+const productos = [
+    { id: 101, nombre: "Cepillo o peine para mascotas", precio: 10000, imagen: cepilloImg },
+    { id: 102, nombre: "Shampoo para mascotas", precio: 20000, imagen: shampooImg },
+    { id: 103, nombre: "Cortaúñas para mascotas", precio: 30000, imagen: cortauñasImg },
+    { id: 104, nombre: "Toallitas húmedas para mascotas", precio: 40000, imagen: toallitasImg }
+];
 
     return (
         <div>
@@ -39,4 +47,4 @@ function AseoPersonal() {
     );
 }
 
-export default AseoPersonal;
+export default AseoPersonal; 
