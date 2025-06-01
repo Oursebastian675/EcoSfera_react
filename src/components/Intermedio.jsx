@@ -13,7 +13,7 @@ import aceiteImg from '../assets/aceite.jpg';
 import detergenteImg from '../assets/detergente.jpg';
 import bloqueadorImg from '../assets/bloqueador.jpg';
 import cortinasImg from '../assets/cortinas.jpg';
-import toallaImg from '../assets/toalla.jpg';
+import capsulasImg from '../assets/capsulas.jpg';
 
 function Intermedio() {
     const { addToCart } = useCarShop();
@@ -23,8 +23,8 @@ function Intermedio() {
         { id: 27, nombre: "Detergente en polvo", precio: 41000, imagen: detergenteImg },
         { id: 44, nombre: "Collar de algodon para mascotas", precio: 3200, imagen: collarImg },
         { id: 22, nombre: "Cortinas de algodón", precio: 60000, imagen: cortinasImg },
-        { id: 105, nombre: "Bloqueador natural", precio: 7600, imagen: bloqueadorImg },
-        { id: 31, nombre: "Toallas de mircro fibra", precio: 43000, imagen: toallaImg }
+        { id: 105, nombre: "Bloqueador natural", precio: 7600, imagen: bloqueadorImg }, 
+        { id: 502, nombre: "Capsulas de algorroba", precio: 78000, imagen: capsulasImg }
     ];
 
 

@@ -20,6 +20,7 @@ function SelectorDeCategorias() {
         <option value="productos/hogar">Hogar</option>
         <option value="productos/bienestar">Bienestar y belleza</option>
         <option value="productos/mascotas">Mascotas</option>
+        <option value="productos/alimentos">Alimentos</option>
       </select>
     </div>
   );

@@ -5,6 +5,7 @@ import AseoPersonal from '../pages/AseoPersonal';
 import BienestarYBelleza from '../pages/BienestarYBelleza';
 import Hogar from '../pages/Hogar';
 import Mascotas from '../pages/Mascotas';
+import Alimentos from '../pages/Alimentos';
 import { CarShopProvider } from '../components/CarShop';
 import Checkout from '../pages/Checkout';
 import Registro from '../pages/Registro';
@@ -59,6 +60,14 @@ export let enrutador = [
         element: (
             <CarShopProvider>
                 <Mascotas />
+            </CarShopProvider>
+        )
+    },
+    {
+        path: '/productos/alimentos',
+        element: (
+            <CarShopProvider>
+                <Alimentos />
             </CarShopProvider>
         )
     },
