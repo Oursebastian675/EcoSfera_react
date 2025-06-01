@@ -2,19 +2,19 @@ import Encabezado from "../components/Encabezado";
 import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
-import cepilloImg from '../assets/cepillo.jpg';
+import arenaImg from '../assets/arena_bambu.jpg';
 import shampooImg from '../assets/shampoo.jpg';
-import cortauñasImg from '../assets/cortauñas.jpg';
-import toallitasImg from '../assets/toallitas.jpg';
+import cuerdaImg from '../assets/cuerda.jpg';
+import collarImg from '../assets/collar_algodon.jpeg';
 
 
 function Mascotas() {
     const { addToCart } = useCarShop();
   const productos = [
-      { id: 101, nombre: "Cepillo o peine para mascotas", precio: 10000, imagen: cepilloImg },
-      { id: 102, nombre: "Shampoo para mascotas", precio: 20000, imagen: shampooImg },
-      { id: 103, nombre: "Cortaúñas para mascotas", precio: 30000, imagen: cortauñasImg },
-      { id: 104, nombre: "Toallitas húmedas para mascotas", precio: 40000, imagen: toallitasImg }
+      { id: 41, nombre: "Arena para gatos de bambú", precio: 4000, imagen: arenaImg },
+      { id: 42, nombre: "Shampoo para mascotas", precio: 32000, imagen: shampooImg },
+      { id: 43, nombre: "Cuerda natural para mascotas", precio: 21000, imagen: cuerdaImg },
+      { id: 44, nombre: "Collar de algodon para mascotas", precio: 3200, imagen: collarImg }
   ];
   
     return (

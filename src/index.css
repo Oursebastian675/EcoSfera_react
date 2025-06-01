@@ -135,33 +135,8 @@ body {
 }
 
 
-.productos_intermedio {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 150px;
-  
-}
 
-.img_producto_intermedio {
-  width: 150px;
-  align-items: center;
-  margin: 6px;
-  border-radius: 10px;
-  border: white solid 5px;
-}
 
-.texto_img_intermedio {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: rgb(255, 255, 255);
-  text-align: center; 
-  margin: 2px;
-}
 
 .btn-add-cart {
     background-color: rgba(87, 100, 87);

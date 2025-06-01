@@ -3,20 +3,30 @@ import Amano from "../assets/funcion_hecho_a_manos.jpeg";
 import Ingredientes from "../assets/funcion_ingredientes_naturales.jpeg";
 import Animal from "../assets/funcion_libre_de_crueldad_animal.jpeg";
 import Sulfato from "../assets/funcion_libre_de_sulfato.jpeg";
-import Esmalte from "../assets/producto_esmalte_ecologico.jpeg";
-import Bloqueador from "../assets/producto_bloqueador.jpeg";
-import Cesto from "../assets/producto_cesto_fibras_naturales.jpeg";
-import Cortinas from "../assets/producto_cortinas_de_algodon.jpeg";
-import Hilo from "../assets/producto_hilo_dental_seda.jpeg";
-import ShampooCafe from "../assets/producto_shampoo_de_cafe.jpeg";
-import Shampoo from "../assets/producto_shampoo.jpeg";
-import Snacks from "../assets/producto_snacks_organicos.jpeg";
 import Banner from "../assets/banerVerticalProductos.jpg";
 import React from 'react';
+import "../pages/Productos.css";
 import { useCarShop } from './CarShop';
+
+import collarImg from '../assets/collar_algodon.jpeg';
+import aceiteImg from '../assets/aceite.jpg';
+import detergenteImg from '../assets/detergente.jpg';
+import bloqueadorImg from '../assets/bloqueador.jpg';
+import cortinasImg from '../assets/cortinas.jpg';
+import toallaImg from '../assets/toalla.jpg';
 
 function Intermedio() {
     const { addToCart } = useCarShop();
+
+    const productos = [
+        { id: 101, nombre: "Aceite natural con coco", precio: 75000, imagen: aceiteImg },
+        { id: 27, nombre: "Detergente en polvo", precio: 41000, imagen: detergenteImg },
+        { id: 44, nombre: "Collar de algodon para mascotas", precio: 3200, imagen: collarImg },
+        { id: 22, nombre: "Cortinas de algodón", precio: 60000, imagen: cortinasImg },
+        { id: 105, nombre: "Bloqueador natural", precio: 7600, imagen: bloqueadorImg },
+        { id: 31, nombre: "Toallas de mircro fibra", precio: 43000, imagen: toallaImg }
+    ];
+
 
     return (
         <section>
@@ -56,101 +66,24 @@ function Intermedio() {
             </div>
 
 
-
-            <div className="productos_intermedio">
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 501" />
-                    <div className="texto_img_intermedio">Producto 501</div>
-                    <div className="texto_img_intermedio">$10.000</div>
-                    <button 
-                        className="btn-add-cart" 
-                        onClick={() => addToCart({
-                            id: 501,
-                            nombre: "Producto 501",
-                            precio: 10000,
-                            imagen: ""
-                        })}
-                    >
-                        Añadir al carrito
-                    </button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 502" />
-                    <div className="texto_img_intermedio">Producto 502</div>
-                    <div className="texto_img_intermedio">$15.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 502,
-                        nombre: "Producto 502",
-                        precio: 15000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 503" />
-                    <div className="texto_img_intermedio">Producto 503</div>
-                    <div className="texto_img_intermedio">$20.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 503,
-                        nombre: "Producto 503",
-                        precio: 20000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 504" />
-                    <div className="texto_img_intermedio">Producto 504</div>
-                    <div className="texto_img_intermedio">$25.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 504,
-                        nombre: "Producto 504",
-                        precio: 25000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 505" />
-                    <div className="texto_img_intermedio">Producto 505</div>
-                    <div className="texto_img_intermedio">$25.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 505,
-                        nombre: "Producto 505",
-                        precio: 25000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 506" />
-                    <div className="texto_img_intermedio">Producto 506</div>
-                    <div className="texto_img_intermedio">$25.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 506,
-                        nombre: "Producto 506",
-                        precio: 15000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 507" />
-                    <div className="texto_img_intermedio">Producto 507</div>
-                    <div className="texto_img_intermedio">$25.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 507,
-                        nombre: "Producto 507",
-                        precio: 15000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
-                <div>
-                    <img className="img_producto_intermedio" src="" alt="Producto 508" />
-                    <div className="texto_img_intermedio">Producto 508</div>
-                    <div className="texto_img_intermedio">$25.000</div>
-                    <button className="btn-add-cart" onClick={() => addToCart({
-                        id: 508,
-                        nombre: "Producto 508",
-                        precio: 15000,
-                        imagen: ""
-                    })}>Añadir al carrito</button>
-                </div>
+            <div className="productos_generales">
+                {productos.map(producto => (
+                    <div key={producto.id}>
+                        <img
+                            className="img_producto_intermedio"
+                            src={producto.imagen || "/placeholder.jpg"}
+                            alt={producto.nombre}
+                        />
+                        <div className="texto_img_intermedio">{producto.nombre}</div>
+                        <div className="texto_img_intermedio">${producto.precio}</div>
+                        <button
+                            className="btn-add-cart"
+                            onClick={() => addToCart(producto)}
+                        >
+                            Añadir al carrito
+                        </button>
+                    </div>
+                ))}
             </div>
 
             <div className="banner">

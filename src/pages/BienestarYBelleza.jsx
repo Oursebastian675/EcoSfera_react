@@ -3,20 +3,17 @@ import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
 
-import shampooMascotasImg from '../assets/shampoo_mascotas.jpg';
-import cepilloCerdasImg from '../assets/cepillo_cerdas.jpg';
-import hidrataImg from '../assets/hidrata.jpg';
-import limaImg from '../assets/lima.jpg';
-
+import toallaImg from '../assets/toalla.jpg';
+import esmalteImg from '../assets/esmalte.jpg';
+import baseImg from '../assets/base.png';
 
 function BienestarYBelleza() {
     const { addToCart } = useCarShop();
     
    const productos = [
-    { id: 201, nombre: "Shampoo hipoalergénico para mascotas", precio: 15000, imagen: shampooMascotasImg },
-    { id: 202, nombre: "Cepillo desenredante o de cerdas suaves", precio: 25000, imagen: cepilloCerdasImg },
-    { id: 203, nombre: "Aceite o Spray hidratante para el pelaje", precio: 35000, imagen: hidrataImg },
-    { id: 204, nombre: "Lima", precio: 45000, imagen: limaImg }
+    { id: 31, nombre: "Toallas de mircro fibra", precio: 43000, imagen: toallaImg },
+    { id: 32, nombre: "Esmalte a base de ingredientes naturales", precio: 56000, imagen: esmalteImg },
+    { id: 33, nombre: "Base de maquillaje natural", precio: 53000, imagen: baseImg },
 ];
 
 

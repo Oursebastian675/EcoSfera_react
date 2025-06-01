@@ -2,20 +2,25 @@ import Encabezado from "../components/Encabezado";
 import Pie from "../components/Pie";
 import { useCarShop } from '../components/CarShop';
 
-import jabonNaturalImg from '../assets/jabon_natural.webp';
-import bolsaAlgodonImg from '../assets/bolsa-algodon-organico.jpg';
-import velasSoyaImg from '../assets/velas.webp';
-import cepillosReutilizablesImg from '../assets/cepillos.jpg';
-
+import sabanasImg from '../assets/sabanas.jpg';
+import cestoImg from '../assets/cesto.jpg';
+import cortinasImg from '../assets/cortinas.jpg';
+import suavizanteImg from '../assets/suavizante.jpg';
+import vajillaImg from '../assets/vajilla.jpeg';
+import basuraImg from '../assets/bolsa.jpg';
+import detergenteImg from '../assets/detergente.jpg';
 
 function Hogar() {
     const { addToCart } = useCarShop();
     
    const productos = [
-    { id: 301, nombre: "Jabón Natural", precio: 50000, imagen: jabonNaturalImg },
-    { id: 302, nombre: "Bolsa Reutilizable", precio: 60000, imagen: bolsaAlgodonImg },
-    { id: 303, nombre: "Velas de cera de soya con aceites esenciales", precio: 70000, imagen: velasSoyaImg },
-    { id: 304, nombre: "Cepillos Reutilizables", precio: 80000, imagen: cepillosReutilizablesImg }
+    { id: 21, nombre: "Cesto de fibra natural", precio: 34000, imagen: cestoImg },
+    { id: 22, nombre: "Cortinas de algodón", precio: 60000, imagen: cortinasImg },
+    { id: 23, nombre: "Sábanas de algodón", precio: 50000, imagen: sabanasImg },
+    { id: 24, nombre: "Suavizante natural", precio: 45000, imagen: suavizanteImg },
+    { id: 25, nombre: "Vajilla de porcelana", precio: 21000, imagen: vajillaImg },
+    { id: 26, nombre: "Bolsa de basura compostable", precio: 22000, imagen: basuraImg },
+    { id: 27, nombre: "Detergente en polvo", precio: 41000, imagen: detergenteImg },
 ];
 
 

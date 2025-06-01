@@ -1,36 +1,18 @@
+
 .productos_generales {
-    display: flex;
+  
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     max-width: 1200px;
-    margin: 100px auto;
-    gap: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+    padding: 100px;
     
   }
   
-
-  .banner_productos {
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
-  
-  
-  .texto_productos {
-    gap: 40px;
-    width: 450px;
-    margin-top: 130px;
-    padding: 40px;
-    line-height: 1.6;
-    text-align: justify;
-    font-size: 1.1rem;
-    background-color:  rgba(87, 100, 87, 0.827);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
   
   .Negrita_info {
     display: block;
@@ -39,3 +21,37 @@
     text-align: center;
     color: black;
   }
+
+
+.img_producto_intermedio {
+    width: 150px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: white solid 5px;
+    margin-bottom: 10px;
+}
+
+.img_producto_intermedio {
+  width: 150px;
+  height: 190px;
+  margin: 10px auto; /* Centra la imagen horizontalmente */
+  border-radius: 10px;
+  border: white solid 5px;
+  display: flex;
+  
+  
+}
+
+.texto_img_intermedio {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(255, 255, 255);
+  margin: 2px auto; 
+}
+
+.btn-add-cart {
+    margin-top: 20px;
+    width: fit-content;
+}
