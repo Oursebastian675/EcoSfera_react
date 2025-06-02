@@ -122,7 +122,25 @@
   font-weight: 600;
 }
 
+.button-reg:hover {
+  background-color: var(--input-focus);
+  color: var(--bg-color);
+}
 
+.button-reg{
+  margin: 50px auto 0 auto;
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
 .back{
   position: absolute;
@@ -144,8 +162,8 @@
 
 .back-regis{
   position: absolute;
-  top: 115px;
-  left: 602px;
+  top: 18px;
+  left: 547px;
   background-color: #333;
   border: none;
   font-size: 1.5rem;

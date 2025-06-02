@@ -11,8 +11,8 @@ function Alimentos() {
     const { addToCart } = useCarShop();
     
 const productos = [
-    { id: 501, nombre: "Snacks con ingredientes naturales", precio: 12000, imagen: snacksImg },
-    { id: 502, nombre: "Capsulas de algorroba", precio: 78000, imagen: capsulasImg }
+    { id: 51, nombre: "Snacks con ingredientes naturales", precio: 12000, imagen: snacksImg },
+    { id: 52, nombre: "Capsulas de algorroba", precio: 78000, imagen: capsulasImg }
     
 ];
 

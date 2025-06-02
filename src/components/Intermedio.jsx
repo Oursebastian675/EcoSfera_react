@@ -24,7 +24,7 @@ function Intermedio() {
         { id: 44, nombre: "Collar de algodon para mascotas", precio: 3200, imagen: collarImg },
         { id: 22, nombre: "Cortinas de algodón", precio: 60000, imagen: cortinasImg },
         { id: 105, nombre: "Bloqueador natural", precio: 7600, imagen: bloqueadorImg }, 
-        { id: 502, nombre: "Capsulas de algorroba", precio: 78000, imagen: capsulasImg }
+        { id: 52, nombre: "Capsulas de algorroba", precio: 78000, imagen: capsulasImg }
     ];
 
 

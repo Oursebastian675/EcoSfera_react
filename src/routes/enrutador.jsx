@@ -9,6 +9,7 @@ import Alimentos from '../pages/Alimentos';
 import { CarShopProvider } from '../components/CarShop';
 import Checkout from '../pages/Checkout';
 import Registro from '../pages/Registro';
+import Search from '../pages/Search';
 
 export let enrutador = [
     {
@@ -82,5 +83,13 @@ export let enrutador = [
     {
         path: '/registro',
         element: <Registro />
+    },
+    {
+        path: '/search',
+        element: (
+            <CarShopProvider>
+                <Search />
+            </CarShopProvider>
+        )
     }
 ];

@@ -1,67 +1,165 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // Assuming you want to use the same styles
+import "./Login.css";
+import { usuarios, actualizarUsuarios } from "../services/database";
+import Swal from "sweetalert2";
 
 function Registro() {
-    const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
-    const [correo, setCorreo] = useState("");
-    const [telefono, setTelefono] = useState("");
-    const [edad, setEdad] = useState("");
+    const [formData, setFormData] = useState({
+        nombre: "",
+        apellido: "",
+        correo: "",
+        telefono: "",
+        edad: "",
+        usuario: "",
+        password: "",
+        confirmPassword: ""
+    });
+
     const navigate = useNavigate();
+
     const handleGoBack = () => {
         navigate(-1);
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const validarFormulario = () => {
+        if (!formData.nombre || !formData.apellido || !formData.correo || 
+            !formData.telefono || !formData.edad || !formData.usuario || 
+            !formData.password || !formData.confirmPassword) {
+            Swal.fire({
+                title: "Error",
+                text: "Todos los campos son obligatorios",
+                icon: "error"
+            });
+            return false;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            Swal.fire({
+                title: "Error",
+                text: "Las contraseñas no coinciden",
+                icon: "error"
+            });
+            return false;
+        }
+
+        if (usuarios.some(u => u.usuario === formData.usuario)) {
+            Swal.fire({
+                title: "Error",
+                text: "El nombre de usuario ya existe",
+                icon: "error"
+            });
+            return false;
+        }
+
+        return true;
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you can add the logic to save the registration data
-        console.log({ nombre, apellido, correo, telefono, edad });
-        navigate("/"); // Redirect after registration
+        
+        if (validarFormulario()) {
+            const nuevoUsuario = {
+                usuario: formData.usuario,
+                password: formData.password,
+                nombre: `${formData.nombre} ${formData.apellido}`,
+                correo: formData.correo,
+                telefono: formData.telefono,
+                edad: formData.edad
+            };
+
+            const nuevosUsuarios = [...usuarios, nuevoUsuario];
+            actualizarUsuarios(nuevosUsuarios);
+
+            Swal.fire({
+                title: "¡Éxito!",
+                text: "Usuario registrado correctamente",
+                icon: "success"
+            }).then(() => {
+                navigate("/login");
+            });
+        }
     };
 
     return (
         <div>
-        <button onClick={handleGoBack} className="back-regis">←</button>
-        <form className="form" onSubmit={handleSubmit}>
-            <div className="title">Registro de Usuario</div>
-            <input
-                type="text"
-                placeholder="Nombre"
-                className="input"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-            />
-            <input
-                type="text"
-                placeholder="Apellido"
-                className="input"
-                value={apellido}
-                onChange={(e) => setApellido(e.target.value)}
-            />
-            <input
-                type="email"
-                placeholder="Correo"
-                className="input"
-                value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
-            />
-            <input
-                type="tel"
-                placeholder="Teléfono"
-                className="input"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-            />
-            <input
-                type="number"
-                placeholder="Edad"
-                className="input"
-                value={edad}
-                onChange={(e) => setEdad(e.target.value)}
-            />
-            <button type="submit" className="button">Registrar</button>
-        </form>
+            <button onClick={handleGoBack} className="back-regis">←</button>
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="title">Registro de Usuario</div>
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Nombre"
+                    className="input"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="apellido"
+                    placeholder="Apellido"
+                    className="input"
+                    value={formData.apellido}
+                    onChange={handleChange}
+                />
+                <input
+                    type="email"
+                    name="correo"
+                    placeholder="Correo"
+                    className="input"
+                    value={formData.correo}
+                    onChange={handleChange}
+                />
+                <input
+                    type="tel"
+                    name="telefono"
+                    placeholder="Teléfono"
+                    className="input"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                />
+                <input
+                    type="number"
+                    name="edad"
+                    placeholder="Edad"
+                    className="input"
+                    value={formData.edad}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="usuario"
+                    placeholder="Nombre de usuario"
+                    className="input"
+                    value={formData.usuario}
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    className="input"
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirmar contraseña"
+                    className="input"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                />
+                <button type="submit" className="button-reg">Registrar</button>
+            </form>
         </div>
     );
 }

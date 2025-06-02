@@ -17,24 +17,22 @@ function Login() {
     
     // Función para verificar las credenciales del usuario
     const handleSubmit = (e) => {
-        e.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+        e.preventDefault();
 
-        // Verificar si el usuario existe en la base de datos y si la contraseña es correcta
         const user = usuarios.find(user => user.usuario === usuario && user.password === password);
 
         if (user) {
-            // Si el usuario y la contraseña coinciden, mostrar la alerta de confirmación
+            // Guardar información del usuario en sessionStorage
+            sessionStorage.setItem('usuario', user.usuario);
+            sessionStorage.setItem('nombreCompleto', user.nombre);
+
             alertaConfirmacion();
+            alertaRedireccion(navigate, "/", "¡Bienvenido! " + user.nombre);
 
-            // Llamar a la alerta de redirección y redirigir después de 2 segundos
-            alertaRedireccion(navigate, "/", "¡Bienvenido!" +  user.nombre);
-
-            // Redirigir al usuario a la página "inicio" después de 2 segundos
             setTimeout(() => {
-                navigate("/"); // Redirigir a la página de inicio
-            }, 2000); // Esperar 2 segundos antes de redirigir
+                navigate("/");
+            }, 2000);
         } else {
-            // Si las credenciales son incorrectas, mostrar la alerta de error
             alertaError("Usuario o contraseña incorrectos");
         }
     };
