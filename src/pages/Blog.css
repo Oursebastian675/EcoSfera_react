@@ -17,12 +17,12 @@
 .Contenido_blog{
     justify-content: center;
     text-align: center;
-    margin: 20px;
+    margin: 30px;
 }
 
 .Cuadro_blog{
     width: 280px;
-    height: 500px;
+    height: 740px;
     background-color: #ffffff;
     display: flex;
     margin: 5%;
