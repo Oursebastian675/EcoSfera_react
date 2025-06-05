@@ -1,4 +1,4 @@
-// Obtener usuarios del localStorage o usar el array predefinido si no hay datos
+/* // Obtener usuarios del localStorage o usar el array predefinido si no hay datos
 export let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [
     {
         usuario: "admin",
@@ -21,4 +21,4 @@ export let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [
 export const actualizarUsuarios = (nuevosUsuarios) => {
     usuarios = nuevosUsuarios;
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
-};
+}; */

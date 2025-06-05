@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Encabezado.css";
 import SelectorDeCategorias from "./Categorias";
-import { useCarShop } from './CarShop';
-import { usuarios } from '../services/database';
+import { useCarShop } from './CarShop';/* 
+import { usuarios } from '../services/database'; */
 
 function Encabezado() {
     const navigate = useNavigate();

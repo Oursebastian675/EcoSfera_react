@@ -1,81 +1,115 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { usuarios } from "../services/database";
-import { alertaConfirmacion, alertaError, alertaRedireccion } from "../helpers/funciones";
-import "./Login.css"; // Importando el archivo CSS para estilos
+import Swal from "sweetalert2";
+import "./Login.css";
+// Asegúrate de importar la función correcta desde tu archivo de servicios
+import { loginUser } from "../services/api.js"; // O la ruta y nombre correctos
 
 function Login() {
-    const [usuario, setUsuario] = useState(""); // Estado para el usuario
-    const [password, setPassword] = useState(""); // Estado para la contraseña
-    const navigate = useNavigate(); // Hook para redirección
+    const [usuario, setUsuario] = useState(""); // Este estado 'usuario' se usará como 'credencial'
+    const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false); // Para feedback visual
+    const navigate = useNavigate();
 
     const handleGoBack = () => {
-        navigate(-1);
+        navigate("/"); // O a la ruta que consideres "anterior"
     };
 
-
-    
-    // Función para verificar las credenciales del usuario
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Inicia la carga
 
-        const user = usuarios.find(user => user.usuario === usuario && user.password === password);
+        if (!usuario || !password) {
+            Swal.fire({
+                title: "Error",
+                text: "Por favor ingrese usuario y contraseña",
+                icon: "error"
+            });
+            setIsLoading(false); // Detiene la carga
+            return;
+        }
 
-        if (user) {
+        try {
+            // Llama a la función del servicio, pasando el estado 'usuario' como 'credencial'
+            const userData = await loginUser(usuario, password);
+
             // Guardar información del usuario en sessionStorage
-            sessionStorage.setItem('usuario', user.usuario);
-            sessionStorage.setItem('nombreCompleto', user.nombre);
+            // El backend devuelve el objeto Usuario completo (sin contraseña)
+            // Asegúrate que userData.usuario y userData.nombre existan en la respuesta
+            if (userData && userData.usuario && userData.nombre) {
+                sessionStorage.setItem('usuarioLogueado', userData.usuario); // Nombre de usuario
+                sessionStorage.setItem('nombreCompletoUsuario', userData.nombre + (userData.apellido ? ` ${userData.apellido}` : '')); // Nombre completo
+                sessionStorage.setItem('idUsuario', userData.id); // También podrías guardar el ID si es útil
+                // Si necesitas el objeto completo (excepto contraseña), puedes guardarlo como string JSON
+                // const userToStore = { ...userData };
+                // delete userToStore.contrasena; // Aunque ya debería venir null desde el backend
+                // sessionStorage.setItem('userData', JSON.stringify(userToStore));
 
-            alertaConfirmacion();
-            alertaRedireccion(navigate, "/", "¡Bienvenido! " + user.nombre);
+                Swal.fire({
+                    title: "¡Bienvenido!",
+                    text: userData.nombre, // Muestra el nombre del usuario
+                    icon: "success",
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(() => {
+                    navigate("/"); // Redirige a la página principal o dashboard
+                });
+            } else {
+                // Esto no debería ocurrir si el login es exitoso y el backend devuelve el usuario
+                console.error("Respuesta inesperada del servidor:", userData);
+                Swal.fire({
+                    title: "Error",
+                    text: "Respuesta inesperada del servidor tras el login.",
+                    icon: "error"
+                });
+            }
 
-            setTimeout(() => {
-                navigate("/");
-            }, 2000);
-        } else {
-            alertaError("Usuario o contraseña incorrectos");
+        } catch (error) {
+            // El servicio loginUser ya debería lanzar un error con un mensaje útil
+            Swal.fire({
+                title: "Error",
+                text: error.message || "Usuario o contraseña incorrectos",
+                icon: "error"
+            });
+        } finally {
+            setIsLoading(false); // Detiene la carga, ya sea éxito o error
         }
     };
 
-            
     return (
         <div>
-             
-        
-             <button onClick={handleGoBack} className="back">←</button>
-        <form className="form" onSubmit={handleSubmit}>
-            
-           
-           
-            <div className="title">Bienvenido,<br /><span>Ingresa tus datos</span></div>
+            <button onClick={handleGoBack} className="back">←</button>
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="title">Bienvenido,<br /><span>Ingresa tus datos</span></div>
 
-            <input
-                type="text"
-                placeholder="Usuario"
-                className="input"
-                value={usuario}
-                onChange={(e) => setUsuario(e.target.value)} // Actualiza el estado del usuario
-                autoFocus
-            />
-            <input
-                type="password"
-                placeholder="Contraseña"
-                className="input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} // Actualiza el estado de la contraseña
-            />
+                <input
+                    type="text"
+                    placeholder="Email o Nombre de Usuario" // Placeholder más descriptivo
+                    className="input"
+                    value={usuario}
+                    onChange={(e) => setUsuario(e.target.value)}
+                    autoFocus
+                    name="credencial" // Coincide con el DTO, aunque el estado se llama 'usuario'
+                />
+                <input
+                    type="password"
+                    placeholder="Contraseña"
+                    className="input"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    name="contrasena" // Coincide con el DTO
+                />
 
-            <button type="submit" className="button-confirm">Ingresar →</button>
+                <button type="submit" className="button-confirm" disabled={isLoading}>
+                    {isLoading ? 'Ingresando...' : 'Ingresar →'}
+                </button>
 
-            <p className="register-option">
-                ¿No tienes una cuenta? <a className="button-register" href="/registro">Regístrate</a>
-            </p>
-
+                <p className="register-option">
+                    ¿No tienes una cuenta? <a className="button-register" href="/registro">Regístrate</a>
+                </p>
             </form>
-            </div>
-        );
-        
+        </div>
+    );
+}
 
-    }
-
-        export default Login;
+export default Login;
