@@ -57,3 +57,25 @@ export const loginUser = async (credencial, contrasena) => {
         throw error; // Re-lanza el error para que el componente lo maneje
     }
 };
+
+// Función para obtener datos del usuario actual
+export const getCurrentUser = async (userId) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al obtener datos del usuario: ${response.status}`);
+        }
+
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error("Error al obtener datos del usuario:", error);
+        throw error;
+    }
+};
