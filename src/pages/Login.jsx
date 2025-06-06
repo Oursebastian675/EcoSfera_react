@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./Login.css";
-// Asegúrate de importar la función correcta desde tu archivo de servicios
+import { Link } from "react-router-dom";
 import { loginUser } from "../services/api.js"; // O la ruta y nombre correctos
 
 function Login() {
@@ -75,7 +75,7 @@ function Login() {
             setIsLoading(false); // Detiene la carga, ya sea éxito o error
         }
     };
-
+    
     return (
         <div>
             <button onClick={handleGoBack} className="back">←</button>
@@ -105,7 +105,7 @@ function Login() {
                 </button>
 
                 <p className="register-option">
-                    ¿No tienes una cuenta? <a className="button-register" href="/registro">Regístrate</a>
+                    ¿No tienes una cuenta?<Link className="button-register" to="/registro">Registrarse</Link>
                 </p>
             </form>
         </div>
