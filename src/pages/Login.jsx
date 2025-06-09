@@ -37,13 +37,18 @@ function Login() {
             // El backend devuelve el objeto Usuario completo (sin contraseña)
             // Asegúrate que userData.usuario y userData.nombre existan en la respuesta
             if (userData && userData.usuario && userData.nombre) {
-                sessionStorage.setItem('usuarioLogueado', userData.usuario); // Nombre de usuario
-                sessionStorage.setItem('nombreCompletoUsuario', userData.nombre + (userData.apellido ? ` ${userData.apellido}` : '')); // Nombre completo
-                sessionStorage.setItem('idUsuario', userData.id); // También podrías guardar el ID si es útil
-                // Si necesitas el objeto completo (excepto contraseña), puedes guardarlo como string JSON
-                // const userToStore = { ...userData };
-                // delete userToStore.contrasena; // Aunque ya debería venir null desde el backend
-                // sessionStorage.setItem('userData', JSON.stringify(userToStore));
+                // Crear objeto de usuario para sessionStorage
+                const usuarioParaGuardar = {
+                    usuario: userData.usuario,
+                    nombreCompleto: userData.nombre + (userData.apellido ? ` ${userData.apellido}` : ''),
+                    id: userData.id
+                };
+                
+                // Guardar el objeto usuario completo
+                sessionStorage.setItem('usuario', JSON.stringify(usuarioParaGuardar));
+                
+                // También guardamos el token si lo necesitas
+                sessionStorage.setItem('token', userData.token);
 
                 Swal.fire({
                     title: "¡Bienvenido!",
@@ -77,36 +82,48 @@ function Login() {
     };
     
     return (
-        <div>
-            <button onClick={handleGoBack} className="back">←</button>
+        <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
-                <div className="title">Bienvenido,<br /><span>Ingresa tus datos</span></div>
+                <div className="title">
+                    Bienvenido,
+                    <span>Ingresa tus datos</span>
+                </div>
 
-                <input
-                    type="text"
-                    placeholder="Email o Nombre de Usuario" // Placeholder más descriptivo
-                    className="input"
-                    value={usuario}
-                    onChange={(e) => setUsuario(e.target.value)}
-                    autoFocus
-                    name="credencial" // Coincide con el DTO, aunque el estado se llama 'usuario'
-                />
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    className="input"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    name="contrasena" // Coincide con el DTO
-                />
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="Email o Nombre de Usuario"
+                        className="input"
+                        value={usuario}
+                        onChange={(e) => setUsuario(e.target.value)}
+                        autoFocus
+                        name="credencial"
+                    />
+                </div>
 
-                <button type="submit" className="button-confirm" disabled={isLoading}>
-                    {isLoading ? 'Ingresando...' : 'Ingresar →'}
+                <div className="input-group">
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        className="input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        name="password"
+                    />
+                </div>
+
+                <button 
+                    type="submit" 
+                    className="button-confirm"
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Ingresando...' : 'INGRESAR →'}
                 </button>
 
-                <p className="register-option">
-                    ¿No tienes una cuenta?<Link className="button-register" to="/registro">Registrarse</Link>
-                </p>
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                    <span style={{ color: 'var(--text-secondary)' }}>¿No tienes una cuenta? </span>
+                    <Link to="/registro">Registrarse</Link>
+                </div>
             </form>
         </div>
     );

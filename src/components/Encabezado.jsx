@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../assets/logoEcoSfera.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Encabezado.css";
 import SelectorDeCategorias from "./Categorias";
 import { useCarShop } from './CarShop';/* 
@@ -12,16 +12,23 @@ function Encabezado() {
     const navigate = useNavigate();
     const { cartItems, removeFromCart, clearCart } = useCarShop();
     const [showCartMenu, setShowCartMenu] = useState(false);
-    const [showUserTooltip, setShowUserTooltip] = useState(false);
+    const [showUserMenu, setShowUserMenu] = useState(false); 
     const [searchTerm, setSearchTerm] = useState('');
+    const [usuarioActual, setUsuarioActual] = useState(null);
 
-    // Aquí puedes implementar la lógica para verificar si el usuario está logueado
-    const usuarioActual = sessionStorage.getItem('usuario');
-    const nombreCompleto = sessionStorage.getItem('nombreCompleto');
+    useEffect(() => {
+        const usuarioGuardado = sessionStorage.getItem('usuario');
+        if (usuarioGuardado) {
+            setUsuarioActual(JSON.parse(usuarioGuardado));
+        }
+    }, []);
 
     const handleLogout = () => {
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('nombreCompleto');
+        sessionStorage.removeItem('token');
+        setUsuarioActual(null); 
+        setShowUserMenu(false); 
         navigate('/');
     };
 
@@ -64,7 +71,7 @@ function Encabezado() {
                             </g>
                         </svg>
                         <input
-                            className="input"
+                            className="text_buscador"
                             type="search"
                             placeholder="Buscar productos"
                             value={searchTerm}
@@ -74,20 +81,34 @@ function Encabezado() {
 
                     <SelectorDeCategorias />
 
-
-
-
-
-
                     {/* Botón Blog */}
                     <Link className="btn-donate" to="/blog">Blog</Link>
 
-                    
                     {/* Botón para ingresar - solo mostrar si no hay sesión iniciada */}
                     {!usuarioActual && <Link className="button" to="/login">Ingresar</Link>}
 
-
-
+                    {/* Icono de Usuario y Menú Desplegable */}
+                    <div 
+                        className="usuario-menu-container" // Contenedor con position: relative
+                        onMouseEnter={() => setShowUserMenu(true)}
+                        onMouseLeave={() => setShowUserMenu(false)}
+                    >
+                        <svg className="user-icon" /* Agrega tu SVG de ícono de usuario aquí */ width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12ZM12 14C8.68629 14 6 16.6863 6 20H18C18 16.6863 15.3137 14 12 14Z" fill="currentColor"/>
+                        </svg>
+                        {showUserMenu && ( // Renderizado condicional del menú
+                            <div className="user-dropdown-menu"> 
+                                {usuarioActual ? (
+                                    <>
+                                        <div className="user-info">Hola, {usuarioActual.nombreCompleto || usuarioActual.usuario}</div>
+                                        <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
+                                    </>
+                                ) : (
+                                    <div className="user-info">Invitado</div>
+                                )}
+                            </div>
+                        )}
+                    </div>
 
                     {/* Carrito de compras */}
                     <div className="carrito-container"

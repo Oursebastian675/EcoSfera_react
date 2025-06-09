@@ -2,23 +2,40 @@ import { useNavigate } from 'react-router-dom';
 import { useCarShop } from '../components/CarShop';
 import logoEcoSfera from '../assets/logoEcoSfera.png';
 import './Checkout.css'
+import Swal from 'sweetalert2';
 
 function Checkout() {
     const navigate = useNavigate();
     const { cartItems } = useCarShop();
+
+    // Calcular el total de la compra
+    const total = cartItems.reduce((sum, item) => sum + (item.precio * item.quantity), 0);
 
     const handleGoBack = () => {
         navigate(-1);
     };
 
     const handleContact = () => {
-        // Aquí puedes implementar la lógica de comunicación
         console.log('Contacto');
     };
 
     const handlePurchase = () => {
-        // Aquí puedes implementar la lógica de compra
-        console.log('Compra realizada');
+        if (cartItems.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Carrito Vacío',
+                text: 'Tu carrito está vacío. Agrega productos antes de continuar.',
+                confirmButtonText: 'Ok'
+            });
+            return;
+        }
+
+        const usuarioActual = sessionStorage.getItem('usuario');
+        if (usuarioActual) {
+            navigate('/purchase');
+        } else {
+            navigate('/login');
+        }
     };
 
     return (
@@ -41,10 +58,14 @@ function Checkout() {
                         <div className="product-details">
                             <h3>{item.nombre}</h3>
                             <p>Cantidad: {item.quantity}</p>
-                            <p>Precio: ${item.precio * item.quantity}</p>
+                            <p>Precio unitario: ${item.precio}</p>
+                            <p className="subtotal">Subtotal: ${item.precio * item.quantity}</p>
                         </div>
                     </div>
                 ))}
+                <div className="checkout-total">
+                    <h3>Total a pagar: ${total}</h3>
+                </div>
             </main>
 
             <footer className="checkout-footer">

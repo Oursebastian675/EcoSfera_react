@@ -6,6 +6,7 @@ import "./Login.css"; // Asegúrate que la ruta a tu CSS sea correcta
 // Por el contexto anterior, parece que lo llamaste registerUser en authService.js
 import { registerUser } from "../services/api.js"; // O como hayas llamado a tu función de servicio
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 function Registro() {
     const [formData, setFormData] = useState({
@@ -113,85 +114,113 @@ function Registro() {
     };
 
     return (
-        <div>
-            <button onClick={handleGoBack} className="back-regis">←</button>
+        <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
-                <div className="title">Registro de Usuario</div>
-                <input
-                    type="text"
-                    name="nombre"
-                    placeholder="Nombre"
-                    className="input"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    required // Añadido para validación HTML5 básica
-                />
-                <input
-                    type="text"
-                    name="apellido"
-                    placeholder="Apellido"
-                    className="input"
-                    value={formData.apellido}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="email"
-                    name="correo" // Mantenemos 'correo' para el estado del formulario y el input
-                    placeholder="Correo"
-                    className="input"
-                    value={formData.correo}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="tel"
-                    name="telefono"
-                    placeholder="Teléfono"
-                    className="input"
-                    value={formData.telefono}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="number" // Si 'edad' es numérico
-                    name="edad"
-                    placeholder="Edad"
-                    className="input"
-                    value={formData.edad}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="usuario"
-                    placeholder="Nombre de usuario"
-                    className="input"
-                    value={formData.usuario}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="password"
-                    name="password" // Mantenemos 'password' para el estado del formulario y el input
-                    placeholder="Contraseña"
-                    className="input"
-                    value={formData.password}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirmar contraseña"
-                    className="input"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                />
-                <button type="submit" className="button-reg" disabled={isLoading}>
-                    {isLoading ? 'Registrando...' : 'Registrar'}
+                <div className="title">
+                    Registro
+                    <span>Crea tu cuenta</span>
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="Nombre"
+                        className="input"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="Apellido"
+                        className="input"
+                        name="apellido"
+                        value={formData.apellido}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="email"
+                        placeholder="Correo electrónico"
+                        className="input"
+                        name="correo"
+                        value={formData.correo}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="tel"
+                        placeholder="Teléfono"
+                        className="input"
+                        name="telefono"
+                        value={formData.telefono}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="number"
+                        placeholder="Edad"
+                        className="input"
+                        name="edad"
+                        value={formData.edad}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="text"
+                        placeholder="Nombre de usuario"
+                        className="input"
+                        name="usuario"
+                        value={formData.usuario}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        className="input"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="input-group">
+                    <input
+                        type="password"
+                        placeholder="Confirmar contraseña"
+                        className="input"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <button 
+                    type="submit" 
+                    className="button-confirm"
+                    disabled={isLoading}
+                >
+                    {isLoading ? 'Registrando...' : 'REGISTRARSE'}
                 </button>
+
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                    <span style={{ color: 'var(--text-secondary)' }}>¿Ya tienes una cuenta? </span>
+                    <Link to="/login">Iniciar sesión</Link>
+                </div>
             </form>
         </div>
     );

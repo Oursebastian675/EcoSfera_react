@@ -143,3 +143,27 @@
         padding: 1rem;
     }
 }
+
+.checkout-total {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: right;
+}
+
+.checkout-total h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+}
+
+.subtotal {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 5px;
+}
+
+.product-details p {
+    margin: 5px 0;
+}

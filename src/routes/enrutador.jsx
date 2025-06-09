@@ -8,9 +8,32 @@ import Mascotas from '../pages/Mascotas';
 import Alimentos from '../pages/Alimentos';
 import { CarShopProvider } from '../components/CarShop';
 import Checkout from '../pages/Checkout';
+import ConfirmPurchase from '../pages/ConfirmPurchase';
 import Registro from '../pages/Registro';
 import Search from '../pages/Search';
 
+function Enrutador() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/aseo-personal" element={<AseoPersonal />} />
+                <Route path="/bienestar-belleza" element={<BienestarYBelleza />} />
+                <Route path="/hogar" element={<Hogar />} />
+                <Route path="/mascotas" element={<Mascotas />} />
+                <Route path="/alimentos" element={<Alimentos />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/purchase" element={<ConfirmPurchase />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}
+
+export default Enrutador;
 export let enrutador = [
     {
         path: '/',
@@ -89,6 +112,14 @@ export let enrutador = [
         element: (
             <CarShopProvider>
                 <Search />
+            </CarShopProvider>
+        )
+    },
+    {
+        path: '/purchase',
+        element: (
+            <CarShopProvider>
+                <ConfirmPurchase />
             </CarShopProvider>
         )
     }
