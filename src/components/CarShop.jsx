@@ -1,9 +1,18 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const CarShop = createContext();
 
 export function CarShopProvider({ children }) {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        // Intentar recuperar los items del carrito desde localStorage al iniciar
+        const savedCart = localStorage.getItem('cartItems');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    // Guardar los items del carrito en localStorage cada vez que cambien
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]);
 
     const addToCart = (product) => {
         setCartItems(prevItems => {
@@ -35,6 +44,7 @@ export function CarShopProvider({ children }) {
 
     const clearCart = () => {
         setCartItems([]);
+        localStorage.removeItem('cartItems'); // Limpiar también el localStorage
     };
 
     return (

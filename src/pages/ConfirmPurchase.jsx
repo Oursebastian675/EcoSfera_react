@@ -3,6 +3,8 @@ import { crearVenta } from '../services/api';
 import Swal from 'sweetalert2';
 import './Login.css';
 import { useCarShop } from '../components/CarShop';
+import { PDFDownloadLink, pdf } from '@react-pdf/renderer';
+import FacturaPDF from '../components/FacturaPDF';
 
 function ConfirmPurchase() {
     const [formData, setFormData] = useState({
@@ -15,7 +17,7 @@ function ConfirmPurchase() {
         metodoPago: 'tarjeta_credito',
     });
 
-    const { cartItems, removeFromCart } = useCarShop(); // Usar el contexto del carrito
+    const { cartItems, removeFromCart, clearCart } = useCarShop(); // Agregar clearCart
     const [userId, setUserId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [total, setTotal] = useState(0);
@@ -26,7 +28,7 @@ function ConfirmPurchase() {
         setTotal(totalPrice);
 
         // Obtener el ID del usuario y datos del usuario actual desde sessionStorage
-        const storedUser = sessionStorage.getItem('usuarioActual');
+        const storedUser = sessionStorage.getItem('usuario'); // Cambiado de 'usuarioActual' a 'usuario'
         if (storedUser) {
             try {
                 const userData = JSON.parse(storedUser);
@@ -34,8 +36,8 @@ function ConfirmPurchase() {
                     setUserId(userData.id);
                     setFormData(prevData => ({
                         ...prevData,
-                        nombre: userData.nombre || '',
-                        apellido: userData.apellido || '',
+                        nombre: userData.nombreCompleto.split(' ')[0] || '', // Extraer el nombre del nombreCompleto
+                        apellido: userData.nombreCompleto.split(' ')[1] || '', // Extraer el apellido del nombreCompleto
                     }));
                 }
             } catch (e) {
@@ -48,13 +50,56 @@ function ConfirmPurchase() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const generarFactura = (datosVenta, resultadoVenta) => {
+        const contenidoFactura = `
+            ===== FACTURA DE COMPRA =====
+            ID de Venta: ${resultadoVenta.id}
+            Fecha: ${new Date().toLocaleDateString()}
+
+            DATOS DEL CLIENTE
+            Nombre: ${datosVenta.nombre} ${datosVenta.apellido}
+            Documento: ${datosVenta.tipoDocumento} ${datosVenta.numeroDocumento}
+            Dirección: ${datosVenta.direccion}
+            Teléfono: ${datosVenta.telefono}
+
+            PRODUCTOS
+            ${cartItems.map(item => `
+            ${item.nombre}
+            Cantidad: ${item.quantity}
+            Precio Unitario: $${item.precio.toLocaleString()}
+            Subtotal: $${(item.quantity * item.precio).toLocaleString()}
+            `).join('\n')}
+
+            TOTAL A PAGAR: $${total.toLocaleString()}
+
+            Método de Pago: ${datosVenta.metodoPago}
+            ===========================
+        `;
+    
+        // Crear un blob con el contenido de la factura
+        const blob = new Blob([contenidoFactura], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        
+        // Crear un enlace temporal y hacer clic en él para descargar
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `factura_${resultadoVenta.id}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Limpiar
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
 
-        const token = sessionStorage.getItem('authToken');
+        const token = sessionStorage.getItem('token');
+        const userData = JSON.parse(sessionStorage.getItem('usuario'));
 
-        if (!token) {
+        if (!token || !userData) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error de autenticación',
@@ -86,7 +131,8 @@ function ConfirmPurchase() {
 
         const itemsParaBackend = cartItems.map(item => ({
             productoId: item.id,
-            cantidad: item.quantity
+            cantidad: item.quantity,
+            precioUnitario: item.precio // Agregamos el precio unitario
         }));
 
         const datosParaBackend = {
@@ -99,21 +145,50 @@ function ConfirmPurchase() {
             tipoDocumento: formData.tipoDocumento,
             numeroDocumento: formData.numeroDocumento,
             metodoPago: formData.metodoPago,
+            total: total // Agregamos el total de la venta
         };
 
         try {
             const resultadoVenta = await crearVenta(datosParaBackend, token);
-            Swal.fire({
-                icon: 'success',
-                title: '¡Compra Exitosa!',
-                text: `Tu compra ha sido procesada. ID de Venta: ${resultadoVenta.id || 'N/A'}`
-            });
-            sessionStorage.removeItem('cart');
-            // No necesitamos setCartItems([]) porque el contexto se encarga del carrito
-            setFormData({
-                nombre: '', apellido: '', direccion: '', numeroTelefono: '',
-                tipoDocumento: '', numeroDocumento: '', metodoPago: 'tarjeta_credito',
-            });
+            if (resultadoVenta.id) {
+                // Generar el PDF
+                const pdfDoc = <FacturaPDF 
+                    datosVenta={datosParaBackend}
+                    resultadoVenta={resultadoVenta}
+                    cartItems={cartItems}
+                    total={total}
+                />;
+
+                // Convertir el documento a un blob
+                const pdfBlob = await pdf(pdfDoc).toBlob();
+                
+                // Crear FormData para enviar el correo
+                const formData = new FormData();
+                formData.append('to', userData.email);
+                formData.append('subject', `Factura de compra #${resultadoVenta.id}`);
+                formData.append('attachment', pdfBlob, `factura_${resultadoVenta.id}.pdf`);
+
+                // Enviar el correo a través del backend
+                await fetch('/api/enviar-factura', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Compra Exitosa!',
+                    text: `Tu compra ha sido procesada. La factura ha sido enviada a tu correo electrónico.`
+                });
+
+                clearCart();
+                setFormData({
+                    nombre: '', apellido: '', direccion: '', numeroTelefono: '',
+                    tipoDocumento: '', numeroDocumento: '', metodoPago: 'tarjeta_credito',
+                });
+            }
         } catch (err) {
             Swal.fire({
                 icon: 'error',
