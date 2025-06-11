@@ -1,0 +1,73 @@
+/* src/App.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .App {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  h1, h2 {
+    color: #0056b3;
+    text-align: center;
+  }
+  
+  .menu-options {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .menu-options button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-options button:hover {
+    background-color: #0056b3;
+  }
+  
+  .data-table, .plot-menu, .plot-display {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .plot-display img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }

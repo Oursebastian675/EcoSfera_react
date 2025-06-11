@@ -53,9 +53,7 @@ function ConfirmPurchase() {
     const generarFactura = (datosVenta, resultadoVenta) => {
         const contenidoFactura = `
             ===== FACTURA DE COMPRA =====
-            ID de Venta: ${resultadoVenta.id}
             Fecha: ${new Date().toLocaleDateString()}
-
             DATOS DEL CLIENTE
             Nombre: ${datosVenta.nombre} ${datosVenta.apellido}
             Documento: ${datosVenta.tipoDocumento} ${datosVenta.numeroDocumento}
@@ -73,6 +71,7 @@ function ConfirmPurchase() {
             TOTAL A PAGAR: $${total.toLocaleString()}
 
             Método de Pago: ${datosVenta.metodoPago}
+            Gracias por confiar en EcoSfera tu tienda virtual de confianza.
             ===========================
         `;
     
@@ -159,8 +158,16 @@ function ConfirmPurchase() {
                     total={total}
                 />;
 
-                // Convertir el documento a un blob
+                // Convertir el documento a un blob y descargarlo
                 const pdfBlob = await pdf(pdfDoc).toBlob();
+                const url = URL.createObjectURL(pdfBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `factura_${resultadoVenta.id}.pdf`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
                 
                 // Crear FormData para enviar el correo
                 const formData = new FormData();
@@ -180,7 +187,7 @@ function ConfirmPurchase() {
                 Swal.fire({
                     icon: 'success',
                     title: '¡Compra Exitosa!',
-                    text: `Tu compra ha sido procesada. La factura ha sido enviada a tu correo electrónico.`
+                    text: 'Tu compra ha sido procesada. La factura se ha descargado y enviado a tu correo electrónico.'
                 });
 
                 clearCart();

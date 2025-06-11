@@ -3,81 +3,72 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { loginUser } from "../services/api.js"; // O la ruta y nombre correctos
+import axios from 'axios';
 
 function Login() {
-    const [usuario, setUsuario] = useState(""); // Este estado 'usuario' se usará como 'credencial'
-    const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false); // Para feedback visual
+    const [credencial, setCredencial] = useState("");
+    const [contrasena, setContrasena] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleGoBack = () => {
-        navigate("/"); // O a la ruta que consideres "anterior"
+        navigate("/");
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true); // Inicia la carga
+        setIsLoading(true);
 
-        if (!usuario || !password) {
+        if (!credencial || !contrasena) {
             Swal.fire({
                 title: "Error",
                 text: "Por favor ingrese usuario y contraseña",
                 icon: "error"
             });
-            setIsLoading(false); // Detiene la carga
+            setIsLoading(false);
             return;
         }
 
         try {
-            // Llama a la función del servicio, pasando el estado 'usuario' como 'credencial'
-            const userData = await loginUser(usuario, password);
+            const response = await axios.post('http://localhost:8080/api/usuarios/login', {
+                credencial: credencial,
+                contrasena: contrasena
+            });
 
-            // Guardar información del usuario en sessionStorage
-            // El backend devuelve el objeto Usuario completo (sin contraseña)
-            // Asegúrate que userData.usuario y userData.nombre existan en la respuesta
-            if (userData && userData.usuario && userData.nombre) {
-                // Crear objeto de usuario para sessionStorage
-                const usuarioParaGuardar = {
-                    usuario: userData.usuario,
-                    nombreCompleto: userData.nombre + (userData.apellido ? ` ${userData.apellido}` : ''),
-                    id: userData.id
-                };
-                
-                // Guardar el objeto usuario completo
-                sessionStorage.setItem('usuario', JSON.stringify(usuarioParaGuardar));
-                
-                // También guardamos el token si lo necesitas
-                sessionStorage.setItem('token', userData.token);
+            const { token, userId, email, nombre, apellido } = response.data;
 
-                Swal.fire({
-                    title: "¡Bienvenido!",
-                    text: userData.nombre, // Muestra el nombre del usuario
-                    icon: "success",
-                    timer: 2000,
-                    showConfirmButton: false
-                }).then(() => {
-                    navigate("/"); // Redirige a la página principal o dashboard
-                });
-            } else {
-                // Esto no debería ocurrir si el login es exitoso y el backend devuelve el usuario
-                console.error("Respuesta inesperada del servidor:", userData);
-                Swal.fire({
-                    title: "Error",
-                    text: "Respuesta inesperada del servidor tras el login.",
-                    icon: "error"
-                });
-            }
+            // Guardar el token y datos del usuario
+            localStorage.setItem('jwtToken', token);
+            
+            const usuarioParaGuardar = {
+                id: userId,
+                usuario: email,
+                nombreCompleto: `${nombre} ${apellido}`, // Combinamos nombre y apellido
+                email: email
+            };
+            
+            sessionStorage.setItem('usuario', JSON.stringify(usuarioParaGuardar));
+            sessionStorage.setItem('token', token);
+
+            Swal.fire({
+                title: "¡Bienvenido!",
+                text: nombre,
+                icon: "success",
+                timer: 2000,
+                showConfirmButton: false
+            }).then(() => {
+                navigate("/");
+            });
 
         } catch (error) {
-            // El servicio loginUser ya debería lanzar un error con un mensaje útil
+            console.error('Error en el login:', error.response ? error.response.data : error.message);
             Swal.fire({
                 title: "Error",
-                text: error.message || "Usuario o contraseña incorrectos",
+                text: error.response?.data?.message || "Error al intentar iniciar sesión. Por favor, inténtalo de nuevo.",
                 icon: "error"
             });
         } finally {
-            setIsLoading(false); // Detiene la carga, ya sea éxito o error
+            setIsLoading(false);
         }
     };
     
@@ -94,8 +85,8 @@ function Login() {
                         type="text"
                         placeholder="Email o Nombre de Usuario"
                         className="input"
-                        value={usuario}
-                        onChange={(e) => setUsuario(e.target.value)}
+                        value={credencial}
+                        onChange={(e) => setCredencial(e.target.value)}
                         autoFocus
                         name="credencial"
                     />
@@ -106,9 +97,9 @@ function Login() {
                         type="password"
                         placeholder="Contraseña"
                         className="input"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        name="password"
+                        value={contrasena}
+                        onChange={(e) => setContrasena(e.target.value)}
+                        name="contrasena"
                     />
                 </div>
 

@@ -16,6 +16,7 @@ function Pie() {
                         {/* O, si no quieres enlazar a una categoría específica, simplemente omite "Nuestros Productos" */}
                         
                         <li><Link to="/blog">Blog</Link></li>
+                        <li><Link to="/graficas">Graficas de ventas</Link></li>
                         <li><Link to="/login">Ingresar</Link></li> {/* Apunta a tu ruta de login existente */}
                         <li><Link to="/registro">Registrarse</Link></li> {/* Apunta a tu ruta de registro existente */}
                         

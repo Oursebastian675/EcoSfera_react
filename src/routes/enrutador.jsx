@@ -11,6 +11,8 @@ import Checkout from '../pages/Checkout';
 import ConfirmPurchase from '../pages/ConfirmPurchase';
 import Registro from '../pages/Registro';
 import Search from '../pages/Search';
+import Graficas from '../components/Graficas'; // Importar el componente Graficas
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Importar BrowserRouter, Routes y Route
 
 function Enrutador() {
     return (
@@ -28,6 +30,7 @@ function Enrutador() {
                 <Route path="/search" element={<Search />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/purchase" element={<ConfirmPurchase />} />
+                <Route path="/graficas" element={<Graficas />} /> {/* Nueva ruta para gráficas */}
             </Routes>
         </BrowserRouter>
     );
@@ -120,6 +123,14 @@ export let enrutador = [
         element: (
             <CarShopProvider>
                 <ConfirmPurchase />
+            </CarShopProvider>
+        )
+    },
+    {
+        path: '/graficas',
+        element: (
+            <CarShopProvider>
+                <Graficas />
             </CarShopProvider>
         )
     }
