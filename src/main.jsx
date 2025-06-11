@@ -15,3 +15,8 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}/>
   </StrictMode>
 )
+
+
+/* cd C:\Users\USUARIO\Documents\Sebastian\React\py_grafico_wed\end_grafico\
+python app.py
+ */
